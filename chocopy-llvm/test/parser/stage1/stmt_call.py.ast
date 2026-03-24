@@ -1,0 +1,46 @@
+{
+  "kind": "Program",
+  "declarations": [],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        3,
+        1,
+        3,
+        9
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          3,
+          1,
+          3,
+          9
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            3,
+            1,
+            3,
+            6
+          ],
+          "name": "print"
+        },
+        "args": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              3,
+              7,
+              3,
+              8
+            ],
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}

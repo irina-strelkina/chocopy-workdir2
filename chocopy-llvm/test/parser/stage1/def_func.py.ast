@@ -1,0 +1,88 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "FuncDef",
+      "location": [
+        5,
+        1,
+        6,
+        13
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          5,
+          5,
+          5,
+          8
+        ],
+        "name": "foo"
+      },
+      "params": [],
+      "returnType": {
+        "kind": "ClassType",
+        "location": [
+          5,
+          14,
+          5,
+          17
+        ],
+        "className": "int"
+      },
+      "declarations": [],
+      "statemets": [
+        {
+          "kind": "ReturnStmt",
+          "location": [
+            6,
+            5,
+            6,
+            13
+          ],
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              6,
+              12,
+              6,
+              13
+            ],
+            "value": 1
+          }
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        8,
+        1,
+        8,
+        6
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          8,
+          1,
+          8,
+          6
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            8,
+            1,
+            8,
+            4
+          ],
+          "name": "foo"
+        },
+        "args": []
+      }
+    }
+  ]
+}

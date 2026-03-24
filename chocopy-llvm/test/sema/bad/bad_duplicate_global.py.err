@@ -1,0 +1,7 @@
+CHECK: bad_duplicate_global.py:9:5: error: Duplicate declaration of identifier in same scope: foo
+CHECK-NEXT: def foo() -> object:
+CHECK: bad_duplicate_global.py:13:5: error: Duplicate declaration of identifier in same scope: print
+CHECK-NEXT: def print(val:object) -> object:
+CHECK: bad_duplicate_global.py:17:1: error: Duplicate declaration of identifier in same scope: x
+CHECK-NEXT: x:int = 2
+CHECK: 3 errors generated!

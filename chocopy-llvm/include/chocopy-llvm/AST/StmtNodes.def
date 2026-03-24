@@ -1,0 +1,12 @@
+#ifndef STMT
+# define STMT(CLASS, KIND)
+#endif
+
+STMT(AssignStmt,  AssignStmt)
+STMT(ExprStmt,    ExprStmt)
+STMT(ForStmt,     ForStmt)
+STMT(IfStmt,      IfStmt)
+STMT(ReturnStmt,  ReturnStmt)
+STMT(WhileStmt,   WhileStmt)
+
+#undef STMT

@@ -1,0 +1,3 @@
+CHECK: bad_class_init_return.py:5:9: error: Expected type `<None>`; got type `int`
+CHECK-NEXT: return 1 # Bad
+CHECK: 1 error generated!

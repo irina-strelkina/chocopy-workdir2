@@ -1,0 +1,371 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "FuncDef",
+      "location": [
+        4,
+        1,
+        10,
+        22
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          4,
+          5,
+          4,
+          8
+        ],
+        "name": "foo"
+      },
+      "params": [
+        {
+          "kind": "ParamDecl",
+          "location": [
+            4,
+            9,
+            4,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              9,
+              4,
+              10
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              4,
+              11,
+              4,
+              14
+            ],
+            "className": "int"
+          }
+        }
+      ],
+      "returnType": {
+        "kind": "ClassType",
+        "location": [
+          4,
+          19,
+          4,
+          23
+        ],
+        "className": "bool"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            5,
+            5,
+            5,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              5,
+              5,
+              5,
+              6
+            ],
+            "name": "a"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              5,
+              7,
+              5,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              5,
+              13,
+              5,
+              14
+            ],
+            "value": 0
+          }
+        },
+        {
+          "kind": "VarDef",
+          "location": [
+            6,
+            5,
+            6,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              6,
+              5,
+              6,
+              6
+            ],
+            "name": "b"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              6,
+              7,
+              6,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              6,
+              13,
+              6,
+              14
+            ],
+            "value": 1
+          }
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            7,
+            5,
+            9,
+            17
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              7,
+              9,
+              7,
+              12
+            ],
+            "name": "bar"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                7,
+                13,
+                7,
+                19
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  7,
+                  13,
+                  7,
+                  14
+                ],
+                "name": "y"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  7,
+                  16,
+                  7,
+                  19
+                ],
+                "className": "int"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              7,
+              24,
+              7,
+              27
+            ],
+            "className": "int"
+          },
+          "declarations": [
+            {
+              "kind": "VarDef",
+              "location": [
+                8,
+                9,
+                8,
+                18
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  8,
+                  9,
+                  8,
+                  10
+                ],
+                "name": "a"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  8,
+                  11,
+                  8,
+                  14
+                ],
+                "className": "int"
+              },
+              "value": {
+                "kind": "IntegerLiteral",
+                "location": [
+                  8,
+                  17,
+                  8,
+                  18
+                ],
+                "value": 2
+              }
+            }
+          ],
+          "statemets": [
+            {
+              "kind": "ReturnStmt",
+              "location": [
+                9,
+                9,
+                9,
+                17
+              ],
+              "value": {
+                "kind": "DeclRef",
+                "location": [
+                  9,
+                  16,
+                  9,
+                  17
+                ],
+                "name": "y"
+              }
+            }
+          ]
+        }
+      ],
+      "statemets": [
+        {
+          "kind": "ReturnStmt",
+          "location": [
+            10,
+            5,
+            10,
+            22
+          ],
+          "value": {
+            "left": {
+              "kind": "CallExpr",
+              "location": [
+                10,
+                12,
+                10,
+                19
+              ],
+              "function": {
+                "kind": "DeclRef",
+                "location": [
+                  10,
+                  12,
+                  10,
+                  15
+                ],
+                "name": "bar"
+              },
+              "args": [
+                {
+                  "kind": "DeclRef",
+                  "location": [
+                    10,
+                    16,
+                    10,
+                    17
+                  ],
+                  "name": "x"
+                }
+              ]
+            },
+            "kind": "BinaryExpr",
+            "location": [
+              10,
+              12,
+              10,
+              22
+            ],
+            "operator": ">",
+            "right": {
+              "kind": "DeclRef",
+              "location": [
+                10,
+                21,
+                10,
+                22
+              ],
+              "name": "a"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        12,
+        1,
+        12,
+        7
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          12,
+          1,
+          12,
+          7
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            12,
+            1,
+            12,
+            4
+          ],
+          "name": "foo"
+        },
+        "args": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              12,
+              5,
+              12,
+              6
+            ],
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}

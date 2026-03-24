@@ -1,0 +1,13 @@
+#ifndef DECL
+# define DECL(CLASS, KIND)
+#endif
+
+DECL(ClassDef,        ClassDef)
+DECL(FuncDef,         FuncDef)
+DECL(GlobalDecl,      GlobalDecl)
+DECL(NonLocalDecl,    NonLocalDecl)
+DECL(VarDef,          VarDef)
+DECL(ParamDecl,       ParamDecl)
+
+#undef TYPE_DECL
+#undef DECL

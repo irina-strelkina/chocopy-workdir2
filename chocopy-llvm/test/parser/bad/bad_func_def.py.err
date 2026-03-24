@@ -1,0 +1,11 @@
+CHECK:      bad_func_def.py:3:10: error: Parse error near token [comma]: ,
+CHECK-NEXT: def foo(a, b) -> 1:
+CHECK:      bad_func_def.py:3:10: error: Expected token colon
+CHECK-NEXT: def foo(a, b) -> 1:
+CHECK:      bad_func_def.py:4:1: error: Unexpected token [INDENT]
+CHECK-NEXT:     x:int = a
+CHECK:      bad_func_def.py:7:1: error: Unexpected token [DEDENT]
+CHECK-NEXT: print(1)
+CHECK:      bad_func_def.py:8:9: error: Unexpected token [star]: *
+CHECK-NEXT: print(3**6)
+CHECK: 5 errors generated!

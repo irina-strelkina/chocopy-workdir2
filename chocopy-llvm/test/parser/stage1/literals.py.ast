@@ -1,0 +1,150 @@
+{
+  "kind": "Program",
+  "declarations": [],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        3,
+        1,
+        3,
+        5
+      ],
+      "expr": {
+        "kind": "BooleanLiteral",
+        "location": [
+          3,
+          1,
+          3,
+          5
+        ],
+        "value": "true"
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        4,
+        1,
+        4,
+        6
+      ],
+      "expr": {
+        "kind": "BooleanLiteral",
+        "location": [
+          4,
+          1,
+          4,
+          6
+        ],
+        "value": "false"
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        5,
+        1,
+        5,
+        2
+      ],
+      "expr": {
+        "kind": "IntegerLiteral",
+        "location": [
+          5,
+          1,
+          5,
+          2
+        ],
+        "value": 1
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        6,
+        1,
+        6,
+        5
+      ],
+      "expr": {
+        "kind": "NoneLiteral",
+        "location": [
+          6,
+          1,
+          6,
+          5
+        ]
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        7,
+        1,
+        7,
+        19
+      ],
+      "expr": {
+        "kind": "StringLiteral",
+        "location": [
+          7,
+          1,
+          7,
+          18
+        ],
+        "value": "\"This is a string"
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        8,
+        1,
+        8,
+        10
+      ],
+      "expr": {
+        "kind": "ListExpr",
+        "location": [
+          8,
+          1,
+          8,
+          10
+        ],
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              2,
+              8,
+              3
+            ],
+            "value": 1
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              5,
+              8,
+              6
+            ],
+            "value": 2
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              8,
+              8,
+              9
+            ],
+            "value": 3
+          }
+        ]
+      }
+    }
+  ]
+}

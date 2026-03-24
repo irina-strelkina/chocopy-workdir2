@@ -1,0 +1,378 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "ClassDef",
+      "location": [
+        3,
+        1,
+        7,
+        19
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          7,
+          3,
+          10
+        ],
+        "name": "Foo"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          11,
+          3,
+          17
+        ],
+        "name": "object"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            4,
+            5,
+            4,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              5,
+              4,
+              6
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              4,
+              7,
+              4,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              4,
+              13,
+              4,
+              14
+            ],
+            "value": 0
+          }
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            6,
+            5,
+            7,
+            19
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              6,
+              9,
+              6,
+              12
+            ],
+            "name": "set"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                6,
+                13,
+                6,
+                23
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  6,
+                  13,
+                  6,
+                  17
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  6,
+                  19,
+                  6,
+                  22
+                ],
+                "className": "Foo"
+              }
+            },
+            {
+              "kind": "ParamDecl",
+              "location": [
+                6,
+                25,
+                6,
+                30
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  6,
+                  25,
+                  6,
+                  26
+                ],
+                "name": "x"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  6,
+                  27,
+                  6,
+                  30
+                ],
+                "className": "int"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              6,
+              35,
+              6,
+              41
+            ],
+            "className": "object"
+          },
+          "declarations": [],
+          "statemets": [
+            {
+              "kind": "AssignStmt",
+              "location": [
+                7,
+                9,
+                7,
+                19
+              ],
+              "targets": [
+                {
+                  "kind": "MemberExpr",
+                  "location": [
+                    7,
+                    9,
+                    7,
+                    15
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      7,
+                      9,
+                      7,
+                      13
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      7,
+                      14,
+                      7,
+                      15
+                    ],
+                    "name": "x"
+                  }
+                }
+              ],
+              "value": {
+                "kind": "DeclRef",
+                "location": [
+                  7,
+                  18,
+                  7,
+                  19
+                ],
+                "name": "x"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        9,
+        1,
+        9,
+        10
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            9,
+            1,
+            9,
+            2
+          ],
+          "name": "f"
+        }
+      ],
+      "value": {
+        "kind": "CallExpr",
+        "location": [
+          9,
+          5,
+          9,
+          10
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            9,
+            5,
+            9,
+            8
+          ],
+          "name": "Foo"
+        },
+        "args": []
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        10,
+        1,
+        10,
+        9
+      ],
+      "expr": {
+        "kind": "MethodCallExpr",
+        "location": [
+          10,
+          1,
+          10,
+          9
+        ],
+        "method": {
+          "kind": "MemberExpr",
+          "location": [
+            10,
+            1,
+            10,
+            6
+          ],
+          "object": {
+            "kind": "DeclRef",
+            "location": [
+              10,
+              1,
+              10,
+              2
+            ],
+            "name": "f"
+          },
+          "member": {
+            "kind": "DeclRef",
+            "location": [
+              10,
+              3,
+              10,
+              6
+            ],
+            "name": "set"
+          }
+        },
+        "args": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              10,
+              7,
+              10,
+              8
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        11,
+        1,
+        11,
+        11
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          11,
+          1,
+          11,
+          11
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            11,
+            1,
+            11,
+            6
+          ],
+          "name": "print"
+        },
+        "args": [
+          {
+            "kind": "MemberExpr",
+            "location": [
+              11,
+              7,
+              11,
+              10
+            ],
+            "object": {
+              "kind": "DeclRef",
+              "location": [
+                11,
+                7,
+                11,
+                8
+              ],
+              "name": "f"
+            },
+            "member": {
+              "kind": "DeclRef",
+              "location": [
+                11,
+                9,
+                11,
+                10
+              ],
+              "name": "x"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

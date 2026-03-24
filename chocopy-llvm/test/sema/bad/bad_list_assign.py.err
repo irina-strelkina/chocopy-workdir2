@@ -1,0 +1,5 @@
+CHECK: bad_list_assign.py:7:1: error: Expected type `[object]`; got type `[int]`
+CHECK-NEXT: y = x
+CHECK: bad_list_assign.py:8:1: error: Expected type `[object]`; got type `[int]`
+CHECK-NEXT: y = [1]
+CHECK: 2 errors generated!

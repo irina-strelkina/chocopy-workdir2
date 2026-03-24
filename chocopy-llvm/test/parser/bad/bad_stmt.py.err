@@ -1,0 +1,16 @@
+CHECK:      bad_stmt.py:4:22: error: Lex error: unknow token [unknown]: &
+CHECK-NEXT: 3 == 4 or (not False && True)
+
+CHECK:      bad_stmt.py:4:22: error: Parse error near token [unknown]: &
+CHECK-NEXT: 3 == 4 or (not False && True)
+
+CHECK:      bad_stmt.py:4:22: error: Expected token r_paren
+CHECK-NEXT: 3 == 4 or (not False && True)
+
+CHECK:      bad_stmt.py:4:23: error: Lex error: unknow token [unknown]: &
+CHECK-NEXT: 3 == 4 or (not False && True)
+
+CHECK:      bad_stmt.py:6:4: error: Unexpected token [less]: <
+CHECK-NEXT: 7 << 8
+
+CHECK: 5 errors generated!

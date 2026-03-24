@@ -1,0 +1,16 @@
+#ifndef TYPE
+# define TYPE(CLASS, KIND)
+#endif
+
+#ifndef VALUE_TYPE
+# define VALUE_TYPE(CLASS, KIND)
+#endif
+
+TYPE(FuncType,  Func)
+TYPE(ValueType, Value)
+
+VALUE_TYPE(ClassValueType,  Class)
+VALUE_TYPE(ListValueType,   List)
+
+#undef VALUE_TYPE
+#undef TYPE

@@ -1,0 +1,11 @@
+CHECK: bad_func_def_call.py:10:1: error: Expected 2 arguments; got 1
+CHECK-NEXT: foo("Hello")
+CHECK: bad_func_def_call.py:11:1: error: Expected 2 arguments; got 3
+CHECK-NEXT: foo("Hello", False, 3)
+CHECK: bad_func_def_call.py:12:1: error: Expected type `bool`; got type `int` in parameter 1
+CHECK-NEXT: foo("Hello", 3)
+CHECK: bad_func_def_call.py:13:1: error: Expected type `str`; got type `int` in parameter 0
+CHECK-NEXT: foo(1, "Hello")
+CHECK: bad_func_def_call.py:14:1: error: Not a function or class: baz
+CHECK-NEXT: baz()
+CHECK: 5 errors generated!

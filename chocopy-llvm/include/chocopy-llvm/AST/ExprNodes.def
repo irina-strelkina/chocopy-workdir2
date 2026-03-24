@@ -1,0 +1,26 @@
+#ifndef EXPR
+# define EXPR(CLASS, KIND)
+#endif
+
+#ifndef LITERAL_EXPR
+# define LITERAL_EXPR(CLASS, KIND)
+#endif
+
+EXPR(BinaryExpr,      BinaryExpr)
+EXPR(CallExpr,        CallExpr)
+EXPR(DeclRef,         DeclRef)
+EXPR(IfExpr,          IfExpr)
+EXPR(IndexExpr,       IndexExpr)
+EXPR(ListExpr,        ListExpr)
+EXPR(Literal,         Literal)
+EXPR(MemberExpr,      MemberExpr)
+EXPR(MethodCallExpr,  MethodCallExpr)
+EXPR(UnaryExpr,       UnaryExpr)
+
+LITERAL_EXPR(BooleanLiteral,  Bool)
+LITERAL_EXPR(IntegerLiteral,  Integer)
+LITERAL_EXPR(NoneLiteral,     None)
+LITERAL_EXPR(StringLiteral,   String)
+
+#undef LITERAL_EXPR
+#undef EXPR

@@ -1,0 +1,126 @@
+#ifndef TOK
+#define TOK(ID)
+#endif
+
+#ifndef KEYWORD
+#define KEYWORD(ID, STR) TOK(kw_##ID)
+#endif
+
+#ifndef PUNCTUATOR
+#define PUNCTUATOR(ID, STR) TOK(ID)
+#endif
+
+TOK(unknown)
+
+TOK(identifier)
+TOK(idstring)
+
+TOK(INDENT)
+TOK(DEDENT)
+TOK(BADENT)
+TOK(NEWLINE)
+TOK(eof)
+
+TOK(string_literal)  // "foo"
+TOK(integer_literal) // 123
+
+KEYWORD(False,    "False")
+KEYWORD(None,     "None")
+KEYWORD(True,     "True")
+KEYWORD(and,      "and")
+KEYWORD(as,       "as")
+KEYWORD(assert,   "assert")
+KEYWORD(async,    "async")
+KEYWORD(await,    "await")
+KEYWORD(break,    "break")
+KEYWORD(class,    "class")
+KEYWORD(continue, "continue")
+KEYWORD(def,      "def")
+KEYWORD(del,      "del")
+KEYWORD(elif,     "elif")
+KEYWORD(else,     "else")
+KEYWORD(except,   "except")
+KEYWORD(finally,  "finally")
+KEYWORD(for,      "for")
+KEYWORD(from,     "from")
+KEYWORD(global,   "global")
+KEYWORD(if,       "if")
+KEYWORD(import,   "import")
+KEYWORD(in,       "in")
+KEYWORD(is,       "is")
+KEYWORD(lambda,   "lambda")
+KEYWORD(nonlocal, "nonlocal")
+KEYWORD(not,      "not")
+KEYWORD(or,       "or")
+KEYWORD(pass,     "pass")
+KEYWORD(raise,    "raise")
+KEYWORD(return,   "return")
+KEYWORD(try,      "try")
+KEYWORD(while,    "while")
+KEYWORD(with,     "with")
+KEYWORD(yield,    "yield")
+
+/// Operators ans delimiters
+PUNCTUATOR(slashslash,    "//")
+PUNCTUATOR(lessequal,     "<=")
+PUNCTUATOR(greaterequal,  ">=")
+PUNCTUATOR(equalequal,    "==")
+PUNCTUATOR(exclaimequal,  "!=")
+PUNCTUATOR(arrow,         "->")
+PUNCTUATOR(plus,          "+")
+PUNCTUATOR(minus,         "-")
+PUNCTUATOR(star,          "*")
+PUNCTUATOR(percent,       "%")
+PUNCTUATOR(less,          "<")
+PUNCTUATOR(greater,       ">")
+PUNCTUATOR(equal,         "=")
+PUNCTUATOR(l_paren,       "(")
+PUNCTUATOR(r_paren,       ")")
+PUNCTUATOR(l_square,      "[")
+PUNCTUATOR(r_square,      "]")
+PUNCTUATOR(comma,         ",")
+PUNCTUATOR(colon,         ":")
+PUNCTUATOR(period,        ".")
+PUNCTUATOR(semi,          ";")
+PUNCTUATOR(hash,          "#")
+
+// PUNCTUATOR(l_brace,             "{")
+// PUNCTUATOR(r_brace,             "}")
+// PUNCTUATOR(ellipsis,            "...")
+// PUNCTUATOR(amp,                 "&")
+// PUNCTUATOR(ampamp,              "&&")
+// PUNCTUATOR(ampequal,            "&=")
+// PUNCTUATOR(starequal,           "*=")
+// PUNCTUATOR(plusplus,            "++")
+// PUNCTUATOR(plusequal,           "+=")
+// PUNCTUATOR(minusminus,          "--")
+// PUNCTUATOR(minusequal,          "-=")
+// PUNCTUATOR(tilde,               "~")
+// PUNCTUATOR(exclaim,             "!")
+// PUNCTUATOR(slashequal,          "/=")
+// PUNCTUATOR(percentequal,        "%=")
+// PUNCTUATOR(lessless,            "<<")
+// PUNCTUATOR(lesslessequal,       "<<=")
+// PUNCTUATOR(spaceship,           "<=>")
+// PUNCTUATOR(greatergreater,      ">>")
+// PUNCTUATOR(greatergreaterequal, ">>=")
+// PUNCTUATOR(caret,               "^")
+// PUNCTUATOR(caretequal,          "^=")
+// PUNCTUATOR(pipe,                "|")
+// PUNCTUATOR(pipepipe,            "||")
+// PUNCTUATOR(pipeequal,           "|=")
+// PUNCTUATOR(question,            "?")
+// PUNCTUATOR(hashhash,            "##")
+// PUNCTUATOR(hashat,              "#@")
+
+// C++ Support
+// PUNCTUATOR(periodstar,          ".*")
+// PUNCTUATOR(arrowstar,           "->*")
+// PUNCTUATOR(coloncolon,          "::")
+
+// Objective C support.
+// PUNCTUATOR(at,                  "@")
+
+#undef PUNCTUATOR
+#undef KEYWORD
+#undef TOK

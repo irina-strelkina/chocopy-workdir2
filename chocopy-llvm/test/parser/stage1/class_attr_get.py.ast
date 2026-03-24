@@ -1,0 +1,177 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "ClassDef",
+      "location": [
+        3,
+        1,
+        4,
+        14
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          7,
+          3,
+          10
+        ],
+        "name": "Foo"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          11,
+          3,
+          17
+        ],
+        "name": "object"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            4,
+            5,
+            4,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              5,
+              4,
+              6
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              4,
+              7,
+              4,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              4,
+              13,
+              4,
+              14
+            ],
+            "value": 1
+          }
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        6,
+        1,
+        6,
+        10
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            6,
+            1,
+            6,
+            2
+          ],
+          "name": "f"
+        }
+      ],
+      "value": {
+        "kind": "CallExpr",
+        "location": [
+          6,
+          5,
+          6,
+          10
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            6,
+            5,
+            6,
+            8
+          ],
+          "name": "Foo"
+        },
+        "args": []
+      }
+    },
+    {
+      "kind": "ExprStmt",
+      "location": [
+        7,
+        1,
+        7,
+        11
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          7,
+          1,
+          7,
+          11
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            7,
+            1,
+            7,
+            6
+          ],
+          "name": "print"
+        },
+        "args": [
+          {
+            "kind": "MemberExpr",
+            "location": [
+              7,
+              7,
+              7,
+              10
+            ],
+            "object": {
+              "kind": "DeclRef",
+              "location": [
+                7,
+                7,
+                7,
+                8
+              ],
+              "name": "f"
+            },
+            "member": {
+              "kind": "DeclRef",
+              "location": [
+                7,
+                9,
+                7,
+                10
+              ],
+              "name": "x"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

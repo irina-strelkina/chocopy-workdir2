@@ -1,0 +1,79 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "displayName": "default (Debug)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceParentDir}/$env{build-dir}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "BUILD_SHARED_LIBS": "On",
+        "LLVM_DIR": "$env{llvm-build-dir}/lib/cmake/llvm",
+        "LLVM_USE_LINKER": "lld",
+        "LLVM_ENABLE_LIBCXX": "On",
+        "LLVM_ENABLE_RTTI": "On",
+        "LLVM_ENABLE_ASSERTIONS": "On"
+      },
+      "environment": {
+        "chpy-workdir": "${sourceParentDir}",
+        "build-dir": "chocopy-llvm-build-debug",
+        "llvm-build-dir": "$env{chpy-workdir}/llvm-build-debug"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": [
+        "default"
+      ],
+      "displayName": "default debug configuration"
+    },
+    {
+      "name": "release",
+      "inherits": [
+        "default"
+      ],
+      "displayName": "default release configuration",
+      "environment": {
+        "build-dir": "chocopy-llvm-build-release"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "relwithdebinfo",
+      "inherits": [
+        "default"
+      ],
+      "displayName": "defalut relwithdebinfo configuration",
+      "environment": {
+        "build-dir": "chocopy-llvm-build-relwithdebinfo"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "relwithdebinfo",
+      "configurePreset": "relwithdebinfo"
+    }
+  ]
+}

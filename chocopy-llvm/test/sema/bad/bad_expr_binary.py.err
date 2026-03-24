@@ -1,0 +1,25 @@
+CHECK: bad_expr_binary.py:3:1: error: Cannot apply operator `and` on types `int` and `int`
+CHECK-NEXT: 1 and 2
+CHECK: bad_expr_binary.py:4:1: error: Cannot apply operator `or` on types `int` and `int`
+CHECK-NEXT: 1 or 2
+CHECK: bad_expr_binary.py:5:1: error: Cannot apply operator `-` on types `bool` and `bool`
+CHECK-NEXT: True - False
+CHECK: bad_expr_binary.py:6:1: error: Cannot apply operator `<` on types `bool` and `bool`
+CHECK-NEXT: True < False
+CHECK: bad_expr_binary.py:7:1: error: Cannot apply operator `+` on types `int` and `bool`
+CHECK-NEXT: 1 + True
+CHECK: bad_expr_binary.py:8:1: error: Cannot apply operator `+` on types `bool` and `int`
+CHECK-NEXT: False + 0
+CHECK: bad_expr_binary.py:9:1: error: Cannot apply operator `==` on types `int` and `bool`
+CHECK-NEXT: 1 == True
+CHECK: bad_expr_binary.py:10:1: error: Cannot apply operator `!=` on types `bool` and `int`
+CHECK-NEXT: False != 0
+CHECK: bad_expr_binary.py:11:1: error: Cannot apply operator `is` on types `int` and `int`
+CHECK-NEXT: 1 is 1
+CHECK: bad_expr_binary.py:12:1: error: Cannot apply operator `is` on types `bool` and `bool`
+CHECK-NEXT: True is False
+CHECK: bad_expr_binary.py:13:1: error: Cannot apply operator `+` on types `<None>` and `<None>`
+CHECK-NEXT: None + None
+CHECK: bad_expr_binary.py:14:1: error: Cannot apply operator `==` on types `<None>` and `<None>`
+CHECK-NEXT: None == None
+CHECK: 12 errors generated!

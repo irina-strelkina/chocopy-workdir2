@@ -1,0 +1,23 @@
+CHECK: bad_assign_expr.py:7:5: error: Expected type `bool`; got type `int`
+CHECK-NEXT: x = z = 1    # Only one error here (assignment to `x = 1` should succeed)
+CHECK: bad_assign_expr.py:8:1: error: Expected type `int`; got type `<None>`
+CHECK-NEXT: x = y = None
+CHECK: bad_assign_expr.py:8:5: error: Expected type `int`; got type `<None>`
+CHECK-NEXT: x = y = None
+CHECK: bad_assign_expr.py:9:1: error: Expected type `int`; got type `<Empty>`
+CHECK-NEXT: x = y = []
+CHECK: bad_assign_expr.py:9:5: error: Expected type `int`; got type `<Empty>`
+CHECK-NEXT: x = y = []
+CHECK: bad_assign_expr.py:10:5: error: Not a variable: a
+CHECK-NEXT: x = a = None
+CHECK: bad_assign_expr.py:10:1: error: Expected type `int`; got type `<None>`
+CHECK-NEXT: x = a = None
+CHECK: bad_assign_expr.py:11:5: error: Not a variable: a
+CHECK-NEXT: x = a = []
+CHECK: bad_assign_expr.py:11:1: error: Expected type `int`; got type `<Empty>`
+CHECK-NEXT: x = a = []
+CHECK: bad_assign_expr.py:12:1: error: Expected type `int`; got type `bool`
+CHECK-NEXT: x = y = True
+CHECK: bad_assign_expr.py:12:5: error: Expected type `int`; got type `bool`
+CHECK-NEXT: x = y = True
+CHECK: 11 errors generated!

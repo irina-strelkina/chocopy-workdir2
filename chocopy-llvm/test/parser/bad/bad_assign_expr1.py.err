@@ -1,0 +1,5 @@
+CHECK:      bad_assign_expr1.py:3:8: error: Parse error near token [equal]: =
+CHECK-NEXT: x = (y = 2)
+CHECK:      bad_assign_expr1.py:3:8: error: Expected token r_paren
+CHECK-NEXT: x = (y = 2)
+CHECK:      2 errors generated!

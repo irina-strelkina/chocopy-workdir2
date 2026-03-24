@@ -1,0 +1,275 @@
+{
+  "kind": "Program",
+  "declarations": [],
+  "statements": [
+    {
+      "kind": "IfStmt",
+      "location": [
+        3,
+        1,
+        11,
+        1
+      ],
+      "condition": {
+        "left": {
+          "kind": "IntegerLiteral",
+          "location": [
+            3,
+            4,
+            3,
+            5
+          ],
+          "value": 1
+        },
+        "kind": "BinaryExpr",
+        "location": [
+          3,
+          4,
+          3,
+          9
+        ],
+        "operator": ">",
+        "right": {
+          "kind": "IntegerLiteral",
+          "location": [
+            3,
+            8,
+            3,
+            9
+          ],
+          "value": 2
+        }
+      },
+      "thenBody": [
+        {
+          "kind": "ExprStmt",
+          "location": [
+            4,
+            5,
+            4,
+            13
+          ],
+          "expr": {
+            "kind": "CallExpr",
+            "location": [
+              4,
+              5,
+              4,
+              13
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                4,
+                5,
+                4,
+                10
+              ],
+              "name": "print"
+            },
+            "args": [
+              {
+                "kind": "IntegerLiteral",
+                "location": [
+                  4,
+                  11,
+                  4,
+                  12
+                ],
+                "value": 1
+              }
+            ]
+          }
+        }
+      ],
+      "elseBody": [
+        {
+          "kind": "IfStmt",
+          "location": [
+            5,
+            1,
+            11,
+            1
+          ],
+          "condition": {
+            "left": {
+              "kind": "IntegerLiteral",
+              "location": [
+                5,
+                6,
+                5,
+                7
+              ],
+              "value": 3
+            },
+            "kind": "BinaryExpr",
+            "location": [
+              5,
+              6,
+              5,
+              12
+            ],
+            "operator": "==",
+            "right": {
+              "kind": "IntegerLiteral",
+              "location": [
+                5,
+                11,
+                5,
+                12
+              ],
+              "value": 4
+            }
+          },
+          "thenBody": [
+            {
+              "kind": "ExprStmt",
+              "location": [
+                6,
+                5,
+                6,
+                13
+              ],
+              "expr": {
+                "kind": "CallExpr",
+                "location": [
+                  6,
+                  5,
+                  6,
+                  13
+                ],
+                "function": {
+                  "kind": "DeclRef",
+                  "location": [
+                    6,
+                    5,
+                    6,
+                    10
+                  ],
+                  "name": "print"
+                },
+                "args": [
+                  {
+                    "kind": "IntegerLiteral",
+                    "location": [
+                      6,
+                      11,
+                      6,
+                      12
+                    ],
+                    "value": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "elseBody": [
+            {
+              "kind": "IfStmt",
+              "location": [
+                7,
+                1,
+                11,
+                1
+              ],
+              "condition": {
+                "kind": "BooleanLiteral",
+                "location": [
+                  7,
+                  6,
+                  7,
+                  10
+                ],
+                "value": "true"
+              },
+              "thenBody": [
+                {
+                  "kind": "ExprStmt",
+                  "location": [
+                    8,
+                    5,
+                    8,
+                    13
+                  ],
+                  "expr": {
+                    "kind": "CallExpr",
+                    "location": [
+                      8,
+                      5,
+                      8,
+                      13
+                    ],
+                    "function": {
+                      "kind": "DeclRef",
+                      "location": [
+                        8,
+                        5,
+                        8,
+                        10
+                      ],
+                      "name": "print"
+                    },
+                    "args": [
+                      {
+                        "kind": "IntegerLiteral",
+                        "location": [
+                          8,
+                          11,
+                          8,
+                          12
+                        ],
+                        "value": 3
+                      }
+                    ]
+                  }
+                }
+              ],
+              "elseBody": [
+                {
+                  "kind": "ExprStmt",
+                  "location": [
+                    10,
+                    5,
+                    10,
+                    13
+                  ],
+                  "expr": {
+                    "kind": "CallExpr",
+                    "location": [
+                      10,
+                      5,
+                      10,
+                      13
+                    ],
+                    "function": {
+                      "kind": "DeclRef",
+                      "location": [
+                        10,
+                        5,
+                        10,
+                        10
+                      ],
+                      "name": "print"
+                    },
+                    "args": [
+                      {
+                        "kind": "IntegerLiteral",
+                        "location": [
+                          10,
+                          11,
+                          10,
+                          12
+                        ],
+                        "value": 4
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

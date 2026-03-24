@@ -1,0 +1,53 @@
+#ifndef DIAG
+#define DIAG(ID, Level, Msg)
+#endif
+
+DIAG(err_badent, Error, "Lex error: Indent amount does not match previous indent")
+
+DIAG(err_unknow_token, Error, "Lex error: unknow token {0}")
+
+DIAG(err_near_token, Error, "Parse error near token {0}")
+
+DIAG(err_expected, Error, "Expected token {0}")
+
+DIAG(err_unexpected, Error, "Unexpected token {0}")
+
+DIAG(err_unsupported, Error, "Unsupported language feature near token {0}")
+
+DIAG(err_dup_decl, Error, "Duplicate declaration of identifier in same scope: {0}")
+
+DIAG(err_bad_shadow, Error, "Cannot shadow class name: {0}")
+
+DIAG(err_not_nonlocal, Error, "Not a nonlocal variable: {0}")
+
+DIAG(err_not_global, Error, "Not a global variable: {0}")
+
+DIAG(err_not_variable, Error, "Not a variable: {}")
+
+DIAG(err_supclass_not_def, Error, "Super-class not defined: {0}")
+
+DIAG(err_supclass_isnot_class, Error, "Super-class must be a class: {0}")
+
+DIAG(err_supclass_is_special_class, Error, "Cannot extend special class: {0}")
+
+DIAG(err_redefine_attr, Error, "Cannot re-define attribute: {0}")
+
+DIAG(err_method_override, Error, "Method overridden with different type signature: {0}")
+
+DIAG(err_first_method_param, Error, "First parameter of the following method must be of the enclosing class: {0}")
+
+DIAG(err_bad_local_assign, Error, "Cannot assign to variable that is not explicitly declared in this scope: {0}")
+
+DIAG(err_bad_return_top, Error, "Return statement cannot appear at the top level")
+
+DIAG(err_maybe_falloff_nonvoid, Error, "All paths in this function/method must have a return statement: {0}")
+
+DIAG(err_invalid_type_annotation, Error, "Invalid type annotation; there is no class named: {0}")
+
+DIAG(err_cannot_access_member, Error, "Cannot access member of non-class type {0}")
+
+DIAG(err_tc_assign, Error, "Expected type `{0}`; got type `{1}`")
+
+DIAG(err_tc_binary, Error, "Cannot apply operator `{0}` on types `{1}` and `{2}`")
+
+#undef DIAG

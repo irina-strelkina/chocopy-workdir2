@@ -1,0 +1,9 @@
+CHECK: bad_duplicate_local.py:9:5: error: Duplicate declaration of identifier in same scope: x
+CHECK-NEXT: x:int = 5  # Duplicate declaration
+CHECK: bad_duplicate_local.py:11:12: error: Duplicate declaration of identifier in same scope: y
+CHECK-NEXT: global y   # Duplicate declaration
+CHECK: bad_duplicate_local.py:13:9: error: Duplicate declaration of identifier in same scope: x
+CHECK-NEXT: def x() -> int: # Duplicate declaration
+CHECK: bad_duplicate_local.py:18:16: error: Duplicate declaration of identifier in same scope: x
+CHECK-NEXT: def bar(x:int, x:int) -> int: # Duplicate params
+CHECK: 4 errors generated!

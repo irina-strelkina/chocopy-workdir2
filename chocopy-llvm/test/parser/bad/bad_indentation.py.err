@@ -1,0 +1,6 @@
+CHECK:      bad_indentation.py:4:1: error: Unexpected token [INDENT]
+CHECK-NEXT: y = 2
+CHECK:      bad_indentation.py:5:1: error: Unexpected token [DEDENT]
+CHECK-NEXT: z = 3
+
+CHECK: 2 errors generated!

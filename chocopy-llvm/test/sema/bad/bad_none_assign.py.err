@@ -1,0 +1,7 @@
+CHECK: bad_none_assign.py:13:1: error: Expected type `str`; got type `<None>`
+CHECK-NEXT: z = None
+CHECK: bad_none_assign.py:14:1: error: Expected type `int`; got type `<None>`
+CHECK-NEXT: a.x = None
+CHECK: bad_none_assign.py:15:1: error: Expected type `bool`; got type `<None>`
+CHECK-NEXT: y[0] = None
+CHECK: 3 errors generated!

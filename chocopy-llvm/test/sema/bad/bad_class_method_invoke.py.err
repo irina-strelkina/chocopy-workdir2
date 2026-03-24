@@ -1,0 +1,11 @@
+CHECK: bad_class_method_invoke.py:27:1: error: Expected 0 arguments; got 1
+CHEKC-NEXT: a.get_A(1)
+CHECK: bad_class_method_invoke.py:28:1: error: There is no method named `get_Z` in class `B`
+CHEKC-NEXT: b.get_Z()
+CHECK: bad_class_method_invoke.py:29:1: error: Expected 1 arguments; got 0
+CHEKC-NEXT: c.set_A()
+CHECK: bad_class_method_invoke.py:30:1: error: Expected type `int`; got type `bool` in parameter 1
+CHEKC-NEXT: c.set_A(False)
+CHECK: bad_class_method_invoke.py:31:1: error: Expected type `int`; got type `<None>` in parameter 1
+CHEKC-NEXT: c.set_A(None)
+CHECK: 5 errors generated!

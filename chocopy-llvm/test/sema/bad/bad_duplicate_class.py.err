@@ -1,0 +1,7 @@
+CHECK: bad_duplicate_class.py:9:7: error: Duplicate declaration of identifier in same scope: A
+CHECK-NEXT: class A(object):
+CHECK: bad_duplicate_class.py:13:7: error: Duplicate declaration of identifier in same scope: str
+CHECK-NEXT: class str(object):
+CHECK: bad_duplicate_class.py:17:7: error: Duplicate declaration of identifier in same scope: z
+CHECK-NEXT: class z(object):
+CHECK: 3 errors generated!

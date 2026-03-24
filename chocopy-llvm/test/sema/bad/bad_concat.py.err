@@ -1,0 +1,7 @@
+CHECK: bad_concat.py:3:2: error: Cannot apply operator `+` on types `str` and `[str]`
+CHECK-NEXT: "Hello" + ["World"]
+CHECK: bad_concat.py:4:1: error: Cannot apply operator `+` on types `int` and `[int]`
+CHECK-NEXT: 1 + [2]
+CHECK: bad_concat.py:5:1: error: Cannot apply operator `+` on types `<Empty>` and `[int]`
+CHECK-NEXT: [] + [1]
+CHECK: 3 errors generated!

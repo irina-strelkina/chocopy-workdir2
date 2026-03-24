@@ -1,0 +1,174 @@
+{
+  "kind": "Program",
+  "declarations": [],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        3,
+        1,
+        3,
+        19
+      ],
+      "targets": [
+        {
+          "kind": "IndexExpr",
+          "location": [
+            3,
+            1,
+            3,
+            5
+          ],
+          "list": {
+            "kind": "DeclRef",
+            "location": [
+              3,
+              1,
+              3,
+              2
+            ],
+            "name": "x"
+          },
+          "index": {
+            "kind": "IntegerLiteral",
+            "location": [
+              3,
+              3,
+              3,
+              4
+            ],
+            "value": 0
+          }
+        },
+        {
+          "kind": "DeclRef",
+          "location": [
+            3,
+            8,
+            3,
+            9
+          ],
+          "name": "y"
+        },
+        {
+          "kind": "MemberExpr",
+          "location": [
+            3,
+            12,
+            3,
+            15
+          ],
+          "object": {
+            "kind": "DeclRef",
+            "location": [
+              3,
+              12,
+              3,
+              13
+            ],
+            "name": "z"
+          },
+          "member": {
+            "kind": "DeclRef",
+            "location": [
+              3,
+              14,
+              3,
+              15
+            ],
+            "name": "f"
+          }
+        }
+      ],
+      "value": {
+        "kind": "IntegerLiteral",
+        "location": [
+          3,
+          18,
+          3,
+          19
+        ],
+        "value": 1
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        4,
+        1,
+        4,
+        15
+      ],
+      "targets": [
+        {
+          "kind": "MemberExpr",
+          "location": [
+            4,
+            1,
+            4,
+            4
+          ],
+          "object": {
+            "kind": "DeclRef",
+            "location": [
+              4,
+              1,
+              4,
+              2
+            ],
+            "name": "z"
+          },
+          "member": {
+            "kind": "DeclRef",
+            "location": [
+              4,
+              3,
+              4,
+              4
+            ],
+            "name": "g"
+          }
+        },
+        {
+          "kind": "DeclRef",
+          "location": [
+            4,
+            7,
+            4,
+            8
+          ],
+          "name": "y"
+        }
+      ],
+      "value": {
+        "kind": "IndexExpr",
+        "location": [
+          4,
+          11,
+          4,
+          15
+        ],
+        "list": {
+          "kind": "DeclRef",
+          "location": [
+            4,
+            11,
+            4,
+            12
+          ],
+          "name": "x"
+        },
+        "index": {
+          "kind": "IntegerLiteral",
+          "location": [
+            4,
+            13,
+            4,
+            14
+          ],
+          "value": 0
+        }
+      }
+    }
+  ]
+}

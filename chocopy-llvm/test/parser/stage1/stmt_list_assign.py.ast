@@ -1,0 +1,176 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "VarDef",
+      "location": [
+        3,
+        1,
+        3,
+        13
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          1,
+          3,
+          2
+        ],
+        "name": "x"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          3,
+          3,
+          3,
+          6
+        ],
+        "className": "int"
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          3,
+          9,
+          3,
+          13
+        ]
+      }
+    }
+  ],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        5,
+        1,
+        5,
+        14
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            5,
+            1,
+            5,
+            2
+          ],
+          "name": "x"
+        }
+      ],
+      "value": {
+        "kind": "ListExpr",
+        "location": [
+          5,
+          5,
+          5,
+          14
+        ],
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              5,
+              6,
+              5,
+              7
+            ],
+            "value": 1
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              5,
+              9,
+              5,
+              10
+            ],
+            "value": 2
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              5,
+              12,
+              5,
+              13
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        6,
+        1,
+        6,
+        12
+      ],
+      "targets": [
+        {
+          "kind": "IndexExpr",
+          "location": [
+            6,
+            1,
+            6,
+            5
+          ],
+          "list": {
+            "kind": "DeclRef",
+            "location": [
+              6,
+              1,
+              6,
+              2
+            ],
+            "name": "x"
+          },
+          "index": {
+            "kind": "IntegerLiteral",
+            "location": [
+              6,
+              3,
+              6,
+              4
+            ],
+            "value": 0
+          }
+        }
+      ],
+      "value": {
+        "kind": "IndexExpr",
+        "location": [
+          6,
+          8,
+          6,
+          12
+        ],
+        "list": {
+          "kind": "DeclRef",
+          "location": [
+            6,
+            8,
+            6,
+            9
+          ],
+          "name": "x"
+        },
+        "index": {
+          "kind": "IntegerLiteral",
+          "location": [
+            6,
+            10,
+            6,
+            11
+          ],
+          "value": 1
+        }
+      }
+    }
+  ]
+}

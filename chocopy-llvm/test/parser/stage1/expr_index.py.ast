@@ -1,0 +1,83 @@
+{
+  "kind": "Program",
+  "declarations": [],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        3,
+        1,
+        3,
+        12
+      ],
+      "expr": {
+        "left": {
+          "kind": "DeclRef",
+          "location": [
+            3,
+            1,
+            3,
+            2
+          ],
+          "name": "a"
+        },
+        "kind": "BinaryExpr",
+        "location": [
+          3,
+          1,
+          3,
+          12
+        ],
+        "operator": "+",
+        "right": {
+          "kind": "IndexExpr",
+          "location": [
+            3,
+            5,
+            3,
+            12
+          ],
+          "list": {
+            "kind": "IndexExpr",
+            "location": [
+              3,
+              5,
+              3,
+              9
+            ],
+            "list": {
+              "kind": "DeclRef",
+              "location": [
+                3,
+                5,
+                3,
+                6
+              ],
+              "name": "b"
+            },
+            "index": {
+              "kind": "DeclRef",
+              "location": [
+                3,
+                7,
+                3,
+                8
+              ],
+              "name": "i"
+            }
+          },
+          "index": {
+            "kind": "DeclRef",
+            "location": [
+              3,
+              10,
+              3,
+              11
+            ],
+            "name": "j"
+          }
+        }
+      }
+    }
+  ]
+}

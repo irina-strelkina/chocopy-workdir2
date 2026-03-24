@@ -1,0 +1,545 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "FuncDef",
+      "location": [
+        4,
+        1,
+        10,
+        17
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          4,
+          5,
+          4,
+          13
+        ],
+        "name": "contains"
+      },
+      "params": [
+        {
+          "kind": "ParamDecl",
+          "location": [
+            4,
+            14,
+            4,
+            25
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              14,
+              4,
+              19
+            ],
+            "name": "items"
+          },
+          "type": {
+            "kind": "ListType",
+            "location": [
+              4,
+              20,
+              4,
+              26
+            ],
+            "elementType": {
+              "kind": "ClassType",
+              "location": [
+                4,
+                21,
+                4,
+                24
+              ],
+              "className": "int"
+            }
+          }
+        },
+        {
+          "kind": "ParamDecl",
+          "location": [
+            4,
+            27,
+            4,
+            32
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              27,
+              4,
+              28
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              4,
+              29,
+              4,
+              32
+            ],
+            "className": "int"
+          }
+        }
+      ],
+      "returnType": {
+        "kind": "ClassType",
+        "location": [
+          4,
+          37,
+          4,
+          41
+        ],
+        "className": "bool"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            5,
+            5,
+            5,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              5,
+              5,
+              5,
+              6
+            ],
+            "name": "i"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              5,
+              7,
+              5,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              5,
+              13,
+              5,
+              14
+            ],
+            "value": 0
+          }
+        }
+      ],
+      "statemets": [
+        {
+          "kind": "WhileStmt",
+          "location": [
+            6,
+            5,
+            10,
+            5
+          ],
+          "condition": {
+            "left": {
+              "kind": "DeclRef",
+              "location": [
+                6,
+                11,
+                6,
+                12
+              ],
+              "name": "i"
+            },
+            "kind": "BinaryExpr",
+            "location": [
+              6,
+              11,
+              6,
+              25
+            ],
+            "operator": "<",
+            "right": {
+              "kind": "CallExpr",
+              "location": [
+                6,
+                15,
+                6,
+                25
+              ],
+              "function": {
+                "kind": "DeclRef",
+                "location": [
+                  6,
+                  15,
+                  6,
+                  18
+                ],
+                "name": "len"
+              },
+              "args": [
+                {
+                  "kind": "DeclRef",
+                  "location": [
+                    6,
+                    19,
+                    6,
+                    24
+                  ],
+                  "name": "items"
+                }
+              ]
+            }
+          },
+          "body": [
+            {
+              "kind": "IfStmt",
+              "location": [
+                7,
+                9,
+                9,
+                9
+              ],
+              "condition": {
+                "left": {
+                  "kind": "IndexExpr",
+                  "location": [
+                    7,
+                    12,
+                    7,
+                    20
+                  ],
+                  "list": {
+                    "kind": "DeclRef",
+                    "location": [
+                      7,
+                      12,
+                      7,
+                      17
+                    ],
+                    "name": "items"
+                  },
+                  "index": {
+                    "kind": "DeclRef",
+                    "location": [
+                      7,
+                      18,
+                      7,
+                      19
+                    ],
+                    "name": "i"
+                  }
+                },
+                "kind": "BinaryExpr",
+                "location": [
+                  7,
+                  12,
+                  7,
+                  25
+                ],
+                "operator": "==",
+                "right": {
+                  "kind": "DeclRef",
+                  "location": [
+                    7,
+                    24,
+                    7,
+                    25
+                  ],
+                  "name": "x"
+                }
+              },
+              "thenBody": [
+                {
+                  "kind": "ReturnStmt",
+                  "location": [
+                    8,
+                    13,
+                    8,
+                    24
+                  ],
+                  "value": {
+                    "kind": "BooleanLiteral",
+                    "location": [
+                      8,
+                      20,
+                      8,
+                      24
+                    ],
+                    "value": "true"
+                  }
+                }
+              ],
+              "elseBody": []
+            },
+            {
+              "kind": "AssignStmt",
+              "location": [
+                9,
+                9,
+                9,
+                18
+              ],
+              "targets": [
+                {
+                  "kind": "DeclRef",
+                  "location": [
+                    9,
+                    9,
+                    9,
+                    10
+                  ],
+                  "name": "i"
+                }
+              ],
+              "value": {
+                "left": {
+                  "kind": "DeclRef",
+                  "location": [
+                    9,
+                    13,
+                    9,
+                    14
+                  ],
+                  "name": "i"
+                },
+                "kind": "BinaryExpr",
+                "location": [
+                  9,
+                  13,
+                  9,
+                  18
+                ],
+                "operator": "+",
+                "right": {
+                  "kind": "IntegerLiteral",
+                  "location": [
+                    9,
+                    17,
+                    9,
+                    18
+                  ],
+                  "value": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "ReturnStmt",
+          "location": [
+            10,
+            5,
+            10,
+            17
+          ],
+          "value": {
+            "kind": "BooleanLiteral",
+            "location": [
+              10,
+              12,
+              10,
+              17
+            ],
+            "value": "false"
+          }
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "IfStmt",
+      "location": [
+        12,
+        1,
+        15,
+        27
+      ],
+      "condition": {
+        "kind": "CallExpr",
+        "location": [
+          12,
+          4,
+          12,
+          36
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            12,
+            4,
+            12,
+            12
+          ],
+          "name": "contains"
+        },
+        "args": [
+          {
+            "kind": "ListExpr",
+            "location": [
+              12,
+              13,
+              12,
+              31
+            ],
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "location": [
+                  12,
+                  14,
+                  12,
+                  15
+                ],
+                "value": 4
+              },
+              {
+                "kind": "IntegerLiteral",
+                "location": [
+                  12,
+                  17,
+                  12,
+                  18
+                ],
+                "value": 8
+              },
+              {
+                "kind": "IntegerLiteral",
+                "location": [
+                  12,
+                  20,
+                  12,
+                  22
+                ],
+                "value": 15
+              },
+              {
+                "kind": "IntegerLiteral",
+                "location": [
+                  12,
+                  24,
+                  12,
+                  26
+                ],
+                "value": 16
+              },
+              {
+                "kind": "IntegerLiteral",
+                "location": [
+                  12,
+                  28,
+                  12,
+                  30
+                ],
+                "value": 23
+              }
+            ]
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              12,
+              33,
+              12,
+              35
+            ],
+            "value": 15
+          }
+        ]
+      },
+      "thenBody": [
+        {
+          "kind": "ExprStmt",
+          "location": [
+            13,
+            3,
+            13,
+            40
+          ],
+          "expr": {
+            "kind": "CallExpr",
+            "location": [
+              13,
+              3,
+              13,
+              40
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                13,
+                3,
+                13,
+                8
+              ],
+              "name": "print"
+            },
+            "args": [
+              {
+                "kind": "StringLiteral",
+                "location": [
+                  13,
+                  9,
+                  13,
+                  21
+                ],
+                "value": "\"Item found!"
+              }
+            ]
+          }
+        }
+      ],
+      "elseBody": [
+        {
+          "kind": "ExprStmt",
+          "location": [
+            15,
+            3,
+            15,
+            27
+          ],
+          "expr": {
+            "kind": "CallExpr",
+            "location": [
+              15,
+              3,
+              15,
+              27
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                15,
+                3,
+                15,
+                8
+              ],
+              "name": "print"
+            },
+            "args": [
+              {
+                "kind": "StringLiteral",
+                "location": [
+                  15,
+                  9,
+                  15,
+                  25
+                ],
+                "value": "\"Item not found."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

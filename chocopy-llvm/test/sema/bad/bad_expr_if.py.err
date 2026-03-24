@@ -1,0 +1,3 @@
+CHECK: bad_expr_if.py:4:1: error: Expected type `int`; got type `object`
+CHECK-NEXT: x = "Hello" if 2 > 3 else 3
+CHECK: 1 error generated!

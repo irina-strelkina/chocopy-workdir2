@@ -1,0 +1,5 @@
+CHECK: bad_class_attr.py:10:5: error: Cannot re-define attribute: x
+CHECK-NEXT: x:int = 2  # Bad
+CHECK: bad_class_attr.py:11:5: error: Cannot re-define attribute: foo
+CHECK-NEXT: foo:str = "" # Bad
+CHECK: 2 errors generated!

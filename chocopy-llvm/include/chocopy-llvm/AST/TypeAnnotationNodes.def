@@ -1,0 +1,8 @@
+#ifndef TYPE_ANNOTATION
+# define TYPE_ANNOTATION(CLASS, KIND)
+#endif
+
+TYPE_ANNOTATION(ClassType,  Class)
+TYPE_ANNOTATION(ListType,   List)
+
+#undef TYPE_ANNOTATION

@@ -1,0 +1,9 @@
+chocopy-llvm-build-debug/
+llvm-build-debug/
+llvm-project/
+**/build/
+*.o
+*.so
+*.a
+*.out
+*.pch

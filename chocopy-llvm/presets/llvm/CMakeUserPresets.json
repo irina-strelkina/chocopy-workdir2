@@ -1,0 +1,88 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "llvm-enable-ccache",
+            "hidden": true,
+            "cacheVariables": {
+                "LLVM_CCACHE_BUILD": "On"
+            }
+        },
+        {
+            "name": "chpy-base",
+            "hidden": true,
+            "inherits": [
+                "llvm-export-compile-commands",
+                "llvm-build-shared-libs",
+                "llvm-build-tests",
+                "llvm-enable-assertions",
+                "llvm-target-x86",
+                "llvm-enable-ccache"
+            ],
+            "generator": "Ninja",
+            "binaryDir": "$env{chpy-workdir}/llvm-build-${presetName}",
+            "toolset": {},
+            "environment": {
+                "chpy-workdir": "${sourceParentDir}/.."
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++",
+                "LLVM_ENABLE_LIBCXX": "On",
+                "LLVM_ENABLE_LLD": "On",
+                "LLVM_ENABLE_RTTI": "On",
+                "LLVM_ENABLE_DUMP": "On"
+            }
+        },
+        {
+            "name": "debug",
+            "inherits": [
+                "chpy-base"
+            ],
+            "displayName": "Build debug type",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "release",
+            "inherits": [
+                "chpy-base"
+            ],
+            "displayName": "Build release type",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "relwithdebinfo",
+            "inherits": [
+                "chpy-base"
+            ],
+            "displayName": "Build relwithdebinfo type",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debug",
+            "configurePreset": "debug"
+        },
+        {
+            "name": "release",
+            "configurePreset": "release"
+        },
+        {
+            "name": "relwithdebinfo",
+            "configurePreset": "relwithdebinfo"
+        }
+    ]
+}

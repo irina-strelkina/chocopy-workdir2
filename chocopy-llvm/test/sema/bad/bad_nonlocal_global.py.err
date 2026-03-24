@@ -1,0 +1,13 @@
+CHECK: bad_nonlocal_global.py:9:5: error: Not a nonlocal variable: y
+CHECK-NEXT: nonlocal y # No such nonlocal var
+CHECK: bad_nonlocal_global.py:10:5: error: Not a global variable: w
+CHECK-NEXT: global w # No such global var
+CHECK: bad_nonlocal_global.py:11:5: error: Not a global variable: int
+CHECK-NEXT: global int # No such global var
+CHECK: bad_nonlocal_global.py:18:9: error: Not a nonlocal variable: y
+CHECK-NEXT: nonlocal y # No such nonlocal var
+CHECK: bad_nonlocal_global.py:19:9: error: Not a global variable: foo
+CHECK-NEXT: global foo # No such global var
+CHECK: bad_nonlocal_global.py:20:9: error: Not a nonlocal variable: bar
+CHECK-NEXT: nonlocal bar # No such nonlocal var
+CHECK: 6 errors generated!

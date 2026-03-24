@@ -1,0 +1,1826 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "ClassDef",
+      "location": [
+        4,
+        1,
+        28,
+        34
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          4,
+          7,
+          4,
+          13
+        ],
+        "name": "Vector"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          4,
+          14,
+          4,
+          20
+        ],
+        "name": "object"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            6,
+            5,
+            6,
+            24
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              6,
+              5,
+              6,
+              10
+            ],
+            "name": "items"
+          },
+          "type": {
+            "kind": "ListType",
+            "location": [
+              6,
+              12,
+              6,
+              19
+            ],
+            "elementType": {
+              "kind": "ClassType",
+              "location": [
+                6,
+                13,
+                6,
+                16
+              ],
+              "className": "int"
+            }
+          },
+          "value": {
+            "kind": "NoneLiteral",
+            "location": [
+              6,
+              20,
+              6,
+              24
+            ]
+          }
+        },
+        {
+          "kind": "VarDef",
+          "location": [
+            7,
+            5,
+            7,
+            18
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              7,
+              5,
+              7,
+              9
+            ],
+            "name": "size"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              7,
+              11,
+              7,
+              14
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              7,
+              17,
+              7,
+              18
+            ],
+            "value": 0
+          }
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            10,
+            5,
+            11,
+            25
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              10,
+              9,
+              10,
+              17
+            ],
+            "name": "__init__"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                10,
+                18,
+                10,
+                31
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  10,
+                  18,
+                  10,
+                  22
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  10,
+                  24,
+                  10,
+                  30
+                ],
+                "className": "Vector"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              10,
+              32,
+              10,
+              32
+            ],
+            "className": "<None>"
+          },
+          "declarations": [],
+          "statemets": [
+            {
+              "kind": "AssignStmt",
+              "location": [
+                11,
+                9,
+                11,
+                25
+              ],
+              "targets": [
+                {
+                  "kind": "MemberExpr",
+                  "location": [
+                    11,
+                    9,
+                    11,
+                    19
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      11,
+                      9,
+                      11,
+                      13
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      11,
+                      14,
+                      11,
+                      19
+                    ],
+                    "name": "items"
+                  }
+                }
+              ],
+              "value": {
+                "kind": "ListExpr",
+                "location": [
+                  11,
+                  22,
+                  11,
+                  25
+                ],
+                "elements": [
+                  {
+                    "kind": "IntegerLiteral",
+                    "location": [
+                      11,
+                      23,
+                      11,
+                      24
+                    ],
+                    "value": 0
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            14,
+            5,
+            15,
+            31
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              14,
+              9,
+              14,
+              17
+            ],
+            "name": "capacity"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                14,
+                18,
+                14,
+                31
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  14,
+                  18,
+                  14,
+                  22
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  14,
+                  24,
+                  14,
+                  30
+                ],
+                "className": "Vector"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              14,
+              36,
+              14,
+              39
+            ],
+            "className": "int"
+          },
+          "declarations": [],
+          "statemets": [
+            {
+              "kind": "ReturnStmt",
+              "location": [
+                15,
+                9,
+                15,
+                31
+              ],
+              "value": {
+                "kind": "CallExpr",
+                "location": [
+                  15,
+                  16,
+                  15,
+                  31
+                ],
+                "function": {
+                  "kind": "DeclRef",
+                  "location": [
+                    15,
+                    16,
+                    15,
+                    19
+                  ],
+                  "name": "len"
+                },
+                "args": [
+                  {
+                    "kind": "MemberExpr",
+                    "location": [
+                      15,
+                      20,
+                      15,
+                      30
+                    ],
+                    "object": {
+                      "kind": "DeclRef",
+                      "location": [
+                        15,
+                        20,
+                        15,
+                        24
+                      ],
+                      "name": "self"
+                    },
+                    "member": {
+                      "kind": "DeclRef",
+                      "location": [
+                        15,
+                        25,
+                        15,
+                        30
+                      ],
+                      "name": "items"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            18,
+            5,
+            20,
+            31
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              18,
+              9,
+              18,
+              26
+            ],
+            "name": "increase_capacity"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                18,
+                27,
+                18,
+                40
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  18,
+                  27,
+                  18,
+                  31
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  18,
+                  33,
+                  18,
+                  39
+                ],
+                "className": "Vector"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              18,
+              45,
+              18,
+              48
+            ],
+            "className": "int"
+          },
+          "declarations": [],
+          "statemets": [
+            {
+              "kind": "AssignStmt",
+              "location": [
+                19,
+                9,
+                19,
+                38
+              ],
+              "targets": [
+                {
+                  "kind": "MemberExpr",
+                  "location": [
+                    19,
+                    9,
+                    19,
+                    19
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      19,
+                      9,
+                      19,
+                      13
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      19,
+                      14,
+                      19,
+                      19
+                    ],
+                    "name": "items"
+                  }
+                }
+              ],
+              "value": {
+                "left": {
+                  "kind": "MemberExpr",
+                  "location": [
+                    19,
+                    22,
+                    19,
+                    32
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      19,
+                      22,
+                      19,
+                      26
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      19,
+                      27,
+                      19,
+                      32
+                    ],
+                    "name": "items"
+                  }
+                },
+                "kind": "BinaryExpr",
+                "location": [
+                  19,
+                  22,
+                  19,
+                  38
+                ],
+                "operator": "+",
+                "right": {
+                  "kind": "ListExpr",
+                  "location": [
+                    19,
+                    35,
+                    19,
+                    38
+                  ],
+                  "elements": [
+                    {
+                      "kind": "IntegerLiteral",
+                      "location": [
+                        19,
+                        36,
+                        19,
+                        37
+                      ],
+                      "value": 0
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "kind": "ReturnStmt",
+              "location": [
+                20,
+                9,
+                20,
+                31
+              ],
+              "value": {
+                "kind": "MethodCallExpr",
+                "location": [
+                  20,
+                  16,
+                  20,
+                  31
+                ],
+                "method": {
+                  "kind": "MemberExpr",
+                  "location": [
+                    20,
+                    16,
+                    20,
+                    29
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      20,
+                      16,
+                      20,
+                      20
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      20,
+                      21,
+                      20,
+                      29
+                    ],
+                    "name": "capacity"
+                  }
+                },
+                "args": []
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            23,
+            5,
+            28,
+            34
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              23,
+              9,
+              23,
+              15
+            ],
+            "name": "append"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                23,
+                16,
+                23,
+                29
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  23,
+                  16,
+                  23,
+                  20
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  23,
+                  22,
+                  23,
+                  28
+                ],
+                "className": "Vector"
+              }
+            },
+            {
+              "kind": "ParamDecl",
+              "location": [
+                23,
+                31,
+                23,
+                40
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  23,
+                  31,
+                  23,
+                  35
+                ],
+                "name": "item"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  23,
+                  37,
+                  23,
+                  40
+                ],
+                "className": "int"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              23,
+              41,
+              23,
+              41
+            ],
+            "className": "<None>"
+          },
+          "declarations": [],
+          "statemets": [
+            {
+              "kind": "IfStmt",
+              "location": [
+                24,
+                9,
+                27,
+                9
+              ],
+              "condition": {
+                "left": {
+                  "kind": "MemberExpr",
+                  "location": [
+                    24,
+                    12,
+                    24,
+                    21
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      24,
+                      12,
+                      24,
+                      16
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      24,
+                      17,
+                      24,
+                      21
+                    ],
+                    "name": "size"
+                  }
+                },
+                "kind": "BinaryExpr",
+                "location": [
+                  24,
+                  12,
+                  24,
+                  40
+                ],
+                "operator": "==",
+                "right": {
+                  "kind": "MethodCallExpr",
+                  "location": [
+                    24,
+                    25,
+                    24,
+                    40
+                  ],
+                  "method": {
+                    "kind": "MemberExpr",
+                    "location": [
+                      24,
+                      25,
+                      24,
+                      38
+                    ],
+                    "object": {
+                      "kind": "DeclRef",
+                      "location": [
+                        24,
+                        25,
+                        24,
+                        29
+                      ],
+                      "name": "self"
+                    },
+                    "member": {
+                      "kind": "DeclRef",
+                      "location": [
+                        24,
+                        30,
+                        24,
+                        38
+                      ],
+                      "name": "capacity"
+                    }
+                  },
+                  "args": []
+                }
+              },
+              "thenBody": [
+                {
+                  "kind": "ExprStmt",
+                  "location": [
+                    25,
+                    13,
+                    25,
+                    37
+                  ],
+                  "expr": {
+                    "kind": "MethodCallExpr",
+                    "location": [
+                      25,
+                      13,
+                      25,
+                      37
+                    ],
+                    "method": {
+                      "kind": "MemberExpr",
+                      "location": [
+                        25,
+                        13,
+                        25,
+                        35
+                      ],
+                      "object": {
+                        "kind": "DeclRef",
+                        "location": [
+                          25,
+                          13,
+                          25,
+                          17
+                        ],
+                        "name": "self"
+                      },
+                      "member": {
+                        "kind": "DeclRef",
+                        "location": [
+                          25,
+                          18,
+                          25,
+                          35
+                        ],
+                        "name": "increase_capacity"
+                      }
+                    },
+                    "args": []
+                  }
+                }
+              ],
+              "elseBody": []
+            },
+            {
+              "kind": "AssignStmt",
+              "location": [
+                27,
+                9,
+                27,
+                37
+              ],
+              "targets": [
+                {
+                  "kind": "IndexExpr",
+                  "location": [
+                    27,
+                    9,
+                    27,
+                    30
+                  ],
+                  "list": {
+                    "kind": "MemberExpr",
+                    "location": [
+                      27,
+                      9,
+                      27,
+                      19
+                    ],
+                    "object": {
+                      "kind": "DeclRef",
+                      "location": [
+                        27,
+                        9,
+                        27,
+                        13
+                      ],
+                      "name": "self"
+                    },
+                    "member": {
+                      "kind": "DeclRef",
+                      "location": [
+                        27,
+                        14,
+                        27,
+                        19
+                      ],
+                      "name": "items"
+                    }
+                  },
+                  "index": {
+                    "kind": "MemberExpr",
+                    "location": [
+                      27,
+                      20,
+                      27,
+                      29
+                    ],
+                    "object": {
+                      "kind": "DeclRef",
+                      "location": [
+                        27,
+                        20,
+                        27,
+                        24
+                      ],
+                      "name": "self"
+                    },
+                    "member": {
+                      "kind": "DeclRef",
+                      "location": [
+                        27,
+                        25,
+                        27,
+                        29
+                      ],
+                      "name": "size"
+                    }
+                  }
+                }
+              ],
+              "value": {
+                "kind": "DeclRef",
+                "location": [
+                  27,
+                  33,
+                  27,
+                  37
+                ],
+                "name": "item"
+              }
+            },
+            {
+              "kind": "AssignStmt",
+              "location": [
+                28,
+                9,
+                28,
+                34
+              ],
+              "targets": [
+                {
+                  "kind": "MemberExpr",
+                  "location": [
+                    28,
+                    9,
+                    28,
+                    18
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      28,
+                      9,
+                      28,
+                      13
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      28,
+                      14,
+                      28,
+                      18
+                    ],
+                    "name": "size"
+                  }
+                }
+              ],
+              "value": {
+                "left": {
+                  "kind": "MemberExpr",
+                  "location": [
+                    28,
+                    21,
+                    28,
+                    30
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      28,
+                      21,
+                      28,
+                      25
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      28,
+                      26,
+                      28,
+                      30
+                    ],
+                    "name": "size"
+                  }
+                },
+                "kind": "BinaryExpr",
+                "location": [
+                  28,
+                  21,
+                  28,
+                  34
+                ],
+                "operator": "+",
+                "right": {
+                  "kind": "IntegerLiteral",
+                  "location": [
+                    28,
+                    33,
+                    28,
+                    34
+                  ],
+                  "value": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ClassDef",
+      "location": [
+        31,
+        1,
+        42,
+        31
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          31,
+          7,
+          31,
+          21
+        ],
+        "name": "DoublingVector"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          31,
+          22,
+          31,
+          28
+        ],
+        "name": "Vector"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            32,
+            5,
+            32,
+            28
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              32,
+              5,
+              32,
+              19
+            ],
+            "name": "doubling_limit"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              32,
+              20,
+              32,
+              23
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              32,
+              26,
+              32,
+              28
+            ],
+            "value": 16
+          }
+        },
+        {
+          "kind": "FuncDef",
+          "location": [
+            35,
+            5,
+            42,
+            31
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              35,
+              9,
+              35,
+              26
+            ],
+            "name": "increase_capacity"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                35,
+                27,
+                35,
+                48
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  35,
+                  27,
+                  35,
+                  31
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  35,
+                  33,
+                  35,
+                  47
+                ],
+                "className": "DoublingVector"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              35,
+              53,
+              35,
+              56
+            ],
+            "className": "int"
+          },
+          "declarations": [],
+          "statemets": [
+            {
+              "kind": "IfStmt",
+              "location": [
+                36,
+                9,
+                42,
+                9
+              ],
+              "condition": {
+                "left": {
+                  "kind": "MethodCallExpr",
+                  "location": [
+                    36,
+                    13,
+                    36,
+                    29
+                  ],
+                  "method": {
+                    "kind": "MemberExpr",
+                    "location": [
+                      36,
+                      13,
+                      36,
+                      26
+                    ],
+                    "object": {
+                      "kind": "DeclRef",
+                      "location": [
+                        36,
+                        13,
+                        36,
+                        17
+                      ],
+                      "name": "self"
+                    },
+                    "member": {
+                      "kind": "DeclRef",
+                      "location": [
+                        36,
+                        18,
+                        36,
+                        26
+                      ],
+                      "name": "capacity"
+                    }
+                  },
+                  "args": []
+                },
+                "kind": "BinaryExpr",
+                "location": [
+                  36,
+                  13,
+                  36,
+                  56
+                ],
+                "operator": "<=",
+                "right": {
+                  "left": {
+                    "kind": "MemberExpr",
+                    "location": [
+                      36,
+                      32,
+                      36,
+                      51
+                    ],
+                    "object": {
+                      "kind": "DeclRef",
+                      "location": [
+                        36,
+                        32,
+                        36,
+                        36
+                      ],
+                      "name": "self"
+                    },
+                    "member": {
+                      "kind": "DeclRef",
+                      "location": [
+                        36,
+                        37,
+                        36,
+                        51
+                      ],
+                      "name": "doubling_limit"
+                    }
+                  },
+                  "kind": "BinaryExpr",
+                  "location": [
+                    36,
+                    32,
+                    36,
+                    56
+                  ],
+                  "operator": "//",
+                  "right": {
+                    "kind": "IntegerLiteral",
+                    "location": [
+                      36,
+                      55,
+                      36,
+                      56
+                    ],
+                    "value": 2
+                  }
+                }
+              },
+              "thenBody": [
+                {
+                  "kind": "AssignStmt",
+                  "location": [
+                    37,
+                    13,
+                    37,
+                    49
+                  ],
+                  "targets": [
+                    {
+                      "kind": "MemberExpr",
+                      "location": [
+                        37,
+                        13,
+                        37,
+                        23
+                      ],
+                      "object": {
+                        "kind": "DeclRef",
+                        "location": [
+                          37,
+                          13,
+                          37,
+                          17
+                        ],
+                        "name": "self"
+                      },
+                      "member": {
+                        "kind": "DeclRef",
+                        "location": [
+                          37,
+                          18,
+                          37,
+                          23
+                        ],
+                        "name": "items"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "left": {
+                      "kind": "MemberExpr",
+                      "location": [
+                        37,
+                        26,
+                        37,
+                        36
+                      ],
+                      "object": {
+                        "kind": "DeclRef",
+                        "location": [
+                          37,
+                          26,
+                          37,
+                          30
+                        ],
+                        "name": "self"
+                      },
+                      "member": {
+                        "kind": "DeclRef",
+                        "location": [
+                          37,
+                          31,
+                          37,
+                          36
+                        ],
+                        "name": "items"
+                      }
+                    },
+                    "kind": "BinaryExpr",
+                    "location": [
+                      37,
+                      26,
+                      37,
+                      49
+                    ],
+                    "operator": "+",
+                    "right": {
+                      "kind": "MemberExpr",
+                      "location": [
+                        37,
+                        39,
+                        37,
+                        49
+                      ],
+                      "object": {
+                        "kind": "DeclRef",
+                        "location": [
+                          37,
+                          39,
+                          37,
+                          43
+                        ],
+                        "name": "self"
+                      },
+                      "member": {
+                        "kind": "DeclRef",
+                        "location": [
+                          37,
+                          44,
+                          37,
+                          49
+                        ],
+                        "name": "items"
+                      }
+                    }
+                  }
+                }
+              ],
+              "elseBody": [
+                {
+                  "kind": "AssignStmt",
+                  "location": [
+                    41,
+                    13,
+                    41,
+                    42
+                  ],
+                  "targets": [
+                    {
+                      "kind": "MemberExpr",
+                      "location": [
+                        41,
+                        13,
+                        41,
+                        23
+                      ],
+                      "object": {
+                        "kind": "DeclRef",
+                        "location": [
+                          41,
+                          13,
+                          41,
+                          17
+                        ],
+                        "name": "self"
+                      },
+                      "member": {
+                        "kind": "DeclRef",
+                        "location": [
+                          41,
+                          18,
+                          41,
+                          23
+                        ],
+                        "name": "items"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "left": {
+                      "kind": "MemberExpr",
+                      "location": [
+                        41,
+                        26,
+                        41,
+                        36
+                      ],
+                      "object": {
+                        "kind": "DeclRef",
+                        "location": [
+                          41,
+                          26,
+                          41,
+                          30
+                        ],
+                        "name": "self"
+                      },
+                      "member": {
+                        "kind": "DeclRef",
+                        "location": [
+                          41,
+                          31,
+                          41,
+                          36
+                        ],
+                        "name": "items"
+                      }
+                    },
+                    "kind": "BinaryExpr",
+                    "location": [
+                      41,
+                      26,
+                      41,
+                      42
+                    ],
+                    "operator": "+",
+                    "right": {
+                      "kind": "ListExpr",
+                      "location": [
+                        41,
+                        39,
+                        41,
+                        42
+                      ],
+                      "elements": [
+                        {
+                          "kind": "IntegerLiteral",
+                          "location": [
+                            41,
+                            40,
+                            41,
+                            41
+                          ],
+                          "value": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "ReturnStmt",
+              "location": [
+                42,
+                9,
+                42,
+                31
+              ],
+              "value": {
+                "kind": "MethodCallExpr",
+                "location": [
+                  42,
+                  16,
+                  42,
+                  31
+                ],
+                "method": {
+                  "kind": "MemberExpr",
+                  "location": [
+                    42,
+                    16,
+                    42,
+                    29
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      42,
+                      16,
+                      42,
+                      20
+                    ],
+                    "name": "self"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      42,
+                      21,
+                      42,
+                      29
+                    ],
+                    "name": "capacity"
+                  }
+                },
+                "args": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        44,
+        1,
+        44,
+        18
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          44,
+          1,
+          44,
+          4
+        ],
+        "name": "vec"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          44,
+          5,
+          44,
+          11
+        ],
+        "className": "Vector"
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          44,
+          14,
+          44,
+          18
+        ]
+      }
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        45,
+        1,
+        45,
+        12
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          45,
+          1,
+          45,
+          4
+        ],
+        "name": "num"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          45,
+          5,
+          45,
+          8
+        ],
+        "className": "int"
+      },
+      "value": {
+        "kind": "IntegerLiteral",
+        "location": [
+          45,
+          11,
+          45,
+          12
+        ],
+        "value": 0
+      }
+    }
+  ],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        48,
+        1,
+        48,
+        23
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            48,
+            1,
+            48,
+            4
+          ],
+          "name": "vec"
+        }
+      ],
+      "value": {
+        "kind": "CallExpr",
+        "location": [
+          48,
+          7,
+          48,
+          23
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            48,
+            7,
+            48,
+            21
+          ],
+          "name": "DoublingVector"
+        },
+        "args": []
+      }
+    },
+    {
+      "kind": "ForStmt",
+      "location": [
+        49,
+        1,
+        53,
+        1
+      ],
+      "identifier": {
+        "kind": "DeclRef",
+        "location": [
+          49,
+          5,
+          49,
+          8
+        ],
+        "name": "num"
+      },
+      "iterable": {
+        "kind": "ListExpr",
+        "location": [
+          49,
+          12,
+          49,
+          34
+        ],
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              49,
+              13,
+              49,
+              14
+            ],
+            "value": 4
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              49,
+              16,
+              49,
+              17
+            ],
+            "value": 8
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              49,
+              19,
+              49,
+              21
+            ],
+            "value": 15
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              49,
+              23,
+              49,
+              25
+            ],
+            "value": 16
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              49,
+              27,
+              49,
+              29
+            ],
+            "value": 23
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              49,
+              31,
+              49,
+              33
+            ],
+            "value": 42
+          }
+        ]
+      },
+      "body": [
+        {
+          "kind": "ExprStmt",
+          "location": [
+            50,
+            5,
+            50,
+            20
+          ],
+          "expr": {
+            "kind": "MethodCallExpr",
+            "location": [
+              50,
+              5,
+              50,
+              20
+            ],
+            "method": {
+              "kind": "MemberExpr",
+              "location": [
+                50,
+                5,
+                50,
+                15
+              ],
+              "object": {
+                "kind": "DeclRef",
+                "location": [
+                  50,
+                  5,
+                  50,
+                  8
+                ],
+                "name": "vec"
+              },
+              "member": {
+                "kind": "DeclRef",
+                "location": [
+                  50,
+                  9,
+                  50,
+                  15
+                ],
+                "name": "append"
+              }
+            },
+            "args": [
+              {
+                "kind": "DeclRef",
+                "location": [
+                  50,
+                  16,
+                  50,
+                  19
+                ],
+                "name": "num"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "ExprStmt",
+          "location": [
+            51,
+            5,
+            51,
+            26
+          ],
+          "expr": {
+            "kind": "CallExpr",
+            "location": [
+              51,
+              5,
+              51,
+              26
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                51,
+                5,
+                51,
+                10
+              ],
+              "name": "print"
+            },
+            "args": [
+              {
+                "kind": "MethodCallExpr",
+                "location": [
+                  51,
+                  11,
+                  51,
+                  25
+                ],
+                "method": {
+                  "kind": "MemberExpr",
+                  "location": [
+                    51,
+                    11,
+                    51,
+                    23
+                  ],
+                  "object": {
+                    "kind": "DeclRef",
+                    "location": [
+                      51,
+                      11,
+                      51,
+                      14
+                    ],
+                    "name": "vec"
+                  },
+                  "member": {
+                    "kind": "DeclRef",
+                    "location": [
+                      51,
+                      15,
+                      51,
+                      23
+                    ],
+                    "name": "capacity"
+                  }
+                },
+                "args": []
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
