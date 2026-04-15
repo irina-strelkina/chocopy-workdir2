@@ -6,11 +6,8 @@
 
 namespace chocopy {
 class Sema;
-class Scope;
 
 class Parser {
-  class ParseScope;
-
 public:
   Parser(ASTContext &C, Lexer &Lex, Sema &Acts);
 
@@ -24,23 +21,51 @@ private:
   bool expectAndConsume(tok::TokenKind ExpectedTok);
 
   void skipToNextLine();
+  void skipToNextDedent();
 
   void emitUnexpected();
 
   const Token &getLookAheadToken(int N);
 
-  Program *parseProgramDemo();
-  Stmt *parseStmtDemo();
-  Stmt *parseAssignOrExprDemo();
-  Expr *parseExprDemo();
-  Expr *parseBinaryAddOrSubDemo();
-  Expr *parseBinaryMulOrDivOrModDemo();
-  Expr *parseFnCallDemo();
-  Expr *parseAtomicExprDemo();
+  Program *parseProgram();
 
-  TypeAnnotation *parseType();
+  // Declarations
+  bool isVarDefStart() const;
+  bool isDeclStart() const;
+  Declaration *parseDeclaration(bool InClassScope = false,
+                                bool InFunctionScope = false);
+  ClassDef *parseClassDef();
+  FuncDef *parseFuncDef();
+  GlobalDecl *parseGlobalDecl();
+  NonLocalDecl *parseNonLocalDecl();
   VarDef *parseVarDef();
+  ParamDecl *parseTypedVar(bool IsParam = false);
+
+  // Statements
+  bool parseStmt(StmtList &Statements);
+  Stmt *parseSimpleStmt();
+  IfStmt *parseIfStmt();
+  WhileStmt *parseWhileStmt();
+  ForStmt *parseForStmt();
+  bool parseSuite(StmtList &Statements);
+
+  // Expressions
+  Expr *parseExpr();
+  Expr *parseOrExpr();
+  Expr *parseAndExpr();
+  Expr *parseNotExpr();
+  Expr *parseCmpExpr();
+  Expr *parseAddExpr();
+  Expr *parseMulExpr();
+  Expr *parseUnaryExpr();
+  Expr *parsePostfixExpr();
+  Expr *parsePrimaryExpr();
+
+  // Types / literals
+  TypeAnnotation *parseType();
   Literal *parseLiteral();
+
+  bool isAssignTarget(const Expr *E) const;
 
 private:
   DiagnosticsEngine &Diags;

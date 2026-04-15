@@ -60,6 +60,22 @@
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
+    },
+    {
+      "name": "ci-server",
+      "displayName": "ci-server configuration",
+      "generator": "Ninja",
+      "binaryDir": "build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "$env{BUILD_TYPE}",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "BUILD_SHARED_LIBS": "On",
+        "LLVM_DIR": "$env{llvm-build-dir}/lib/cmake/llvm",
+        "LLVM_USE_LINKER": "lld",
+        "LLVM_ENABLE_RTTI": "On",
+        "LLVM_ENABLE_ASSERTIONS": "On"
+      }
     }
   ],
   "buildPresets": [
@@ -74,6 +90,10 @@
     {
       "name": "relwithdebinfo",
       "configurePreset": "relwithdebinfo"
+    },
+    {
+      "name": "ci-server",
+      "configurePreset": "ci-server"
     }
   ]
 }
