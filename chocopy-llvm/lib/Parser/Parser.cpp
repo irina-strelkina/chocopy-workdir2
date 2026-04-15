@@ -829,11 +829,6 @@ TypeAnnotation *Parser::parseType() {
     if (TypeAnnotation *T = parseType()) {
       if (expect(tok::r_square)) {
         SMLoc End = Tok.getLocation().End;
-        const char *Ptr = End.getPointer();
-        if (Ptr && *Ptr == ' ')
-          End = SMLoc::getFromPointer(Ptr + 2);
-        else
-          End = SMLoc::getFromPointer(Ptr + 1);
         consumeToken();
         Loc = SMRange(Loc.Start, End);
         return Context.createListType(Loc, T);

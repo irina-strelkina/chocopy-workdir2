@@ -229,27 +229,39 @@ void Lexer::handleIntegerLiteral(Token &Tok) {
 
 void Lexer::handleString(Token &Tok) {
   bool IsId = true;
-  const char *Start = readNext();
-  while (!isEof() && *Start != *BufPtr && !isVerticalWhitespace(*BufPtr)) {
+
+  const char *QuoteStart = BufPtr;
+  // Skip opening quote.
+  readNext();
+  const char *Start = BufPtr;
+
+  while (!isEof() && *BufPtr != '\"' && !isVerticalWhitespace(*BufPtr)) {
     if (*BufPtr == '\\') {
       IsId = false;
-      if (++BufPtr != BufEnd)
+      readNext();
+      if (!isEof())
         readNext();
       continue;
     }
 
-    if (!isChocopyIdentifierBody(*readNext()))
+    if (!isChocopyIdentifierBody(*BufPtr))
       IsId = false;
+    readNext();
   }
 
-  if (IsId && isChocopyIdentifierHead(*++Start))
+  const char *End = BufPtr;
+  unsigned Length = End - Start;
+
+  if (IsId && Length > 0 && isChocopyIdentifierHead(*Start))
     Tok.setKind(tok::idstring);
   else
     Tok.setKind(tok::string_literal);
 
-  unsigned Length = BufPtr - Start;
-  SMLoc B = SMLoc::getFromPointer(Start);
-  SMLoc E = SMLoc::getFromPointer(BufPtr);
+  SMLoc B = SMLoc::getFromPointer(QuoteStart);
+  const char *LocEnd = End;
+  if (!isEof() && *BufPtr == '\"')
+    LocEnd = BufPtr + 1;
+  SMLoc E = SMLoc::getFromPointer(LocEnd);
   Tok.setLocation(SMRange(B, E));
   Tok.setLiteralData(Start);
   Tok.setLength(Length);
