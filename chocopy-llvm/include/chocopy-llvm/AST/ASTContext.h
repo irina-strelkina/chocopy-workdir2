@@ -79,6 +79,8 @@ public:
                              const StmtList &Body);
   BinaryExpr *createBinaryExpr(SMRange Loc, Expr *Left, BinaryExpr::OpKind Kind,
                                Expr *Right);
+  BinaryExpr *createBinaryExpr(Expr *Left, BinaryExpr::OpKind Kind,
+                               Expr *Right);
   CallExpr *createCallExpr(SMRange Loc, Expr *Function, const ExprList &Args);
   DeclRef *createDeclRef(SMRange Loc, SymbolInfo *Name);
   IfExpr *createIfExpr(SMRange Loc, Expr *Cond, Expr *ThenExpr, Expr *ElseExpr);
@@ -95,13 +97,9 @@ public:
                              Expr *Operand);
 
   // Value types
-  ClassValueType *getClassVType(StringRef Name);
+  ClassValueType *getClassVType(ClassDef *CD);
   ListValueType *getListVType(ValueType *ElTy);
   FuncType *getFuncType(const ValueTypeList &ParametersTy, ValueType *RetTy);
-
-  ValueType *convertAnnotationToVType(TypeAnnotation *TA);
-
-  bool isAssignementCompatibility(const ValueType *Sub, const ValueType *Sup);
 
 private:
   template <typename NodeTy, typename... ArgsTy>

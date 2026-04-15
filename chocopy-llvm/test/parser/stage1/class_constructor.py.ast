@@ -110,9 +110,9 @@
                 "kind": "ClassType",
                 "location": [
                   6,
-                  24,
+                  23,
                   6,
-                  27
+                  28
                 ],
                 "className": "Foo"
               }

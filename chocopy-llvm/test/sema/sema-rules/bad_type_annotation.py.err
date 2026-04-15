@@ -1,0 +1,9 @@
+CHECK: bad_type_annotation.py:3:3: error: Invalid type annotation; there is no class named: A
+CHECK-NEXT: x:A = None
+CHECK: bad_type_annotation.py:5:17: error: Invalid type annotation; there is no class named: C
+CHECK-NEXT: def foo(x:B) -> C:
+CHECK: bad_type_annotation.py:5:11: error: Invalid type annotation; there is no class named: B
+CHECK-NEXT: def foo(x:B) -> C:
+CHECK: bad_type_annotation.py:6:7: error: Invalid type annotation; there is no class named: D
+CHECK-NEXT: y:D = None
+CHECK: 4 errors generated!

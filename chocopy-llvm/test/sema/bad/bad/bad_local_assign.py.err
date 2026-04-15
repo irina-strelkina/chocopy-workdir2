@@ -1,0 +1,5 @@
+CHECK: bad_local_assign.py:12:9: error: Cannot assign to variable that is not explicitly declared in this scope: y
+CHECK-NEXT: y = 1  # Bad, nonlocal not declared
+CHECK: bad_local_assign.py:20:5: error: Cannot assign to variable that is not explicitly declared in this scope: z
+CHECK-NEXT: z = 1 # Bad, global not declared
+CHECK: 2 errors generated!

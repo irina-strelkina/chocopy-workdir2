@@ -1,0 +1,5 @@
+CHECK: bad_class_method.py:9:9: error: First parameter of the following method must be of the enclosing class: bar
+CHECK-NEXT: def bar() -> int: # Needs self param
+CHECK: bad_class_method.py:12:9: error: First parameter of the following method must be of the enclosing class: baz
+CHECK-NEXT: def baz(self:int) -> int: # Incorrect self type
+CHECK: 2 errors generated!

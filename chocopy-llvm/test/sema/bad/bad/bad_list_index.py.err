@@ -1,0 +1,11 @@
+CHECK: bad_list_index.py:6:1: error: Index is of non-integer type `bool`
+CHECK-NEXT: x[True]   # Bad
+CHECK: bad_list_index.py:7:1: error: Cannot index into type `bool`
+CHECK-NEXT: False[0]  # Bad
+CHECK: bad_list_index.py:8:1: error: Cannot index into type `<Empty>`
+CHECK-NEXT: [][0]     # Bad
+CHECK: bad_list_index.py:9:1: error: Index is of non-integer type `bool`
+CHECK-NEXT: x[True] = x[False] = 1
+CHECK: bad_list_index.py:9:11: error: Index is of non-integer type `bool`
+CHECK-NEXT: x[True] = x[False] = 1
+CHECK: 5 errors generated!

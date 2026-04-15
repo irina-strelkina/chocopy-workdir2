@@ -39,12 +39,20 @@ void CodeGenModule::release() {
 }
 
 void CodeGenModule::emitDeclaration(Declaration *D) {
+  if (ClassDef *CD = dyn_cast<ClassDef>(D)) {
+    ClassValueType *CVT = CD->getValueType();
+    if (!CVT->isInt())
+      llvm::report_fatal_error(
+          "Unsupported type! Only int is supported! Add support...");
+    return;
+  }
+
   VarDef *V = dyn_cast<VarDef>(D);
 
   assert(V && "Chocopy supports only Variable definitions for now!");
 
   StringRef Name = getFQName(V);
-  ValueType *VT = C.convertAnnotationToVType(V->getType());
+  ValueType *VT = V->getType()->getValueType();
   llvm::Type *T = convertType(VT);
   llvm::Constant *Lit = convertLiteral(V->getValue());
   llvm::GlobalVariable *GV = new llvm::GlobalVariable(

@@ -1,0 +1,7 @@
+CHECK: bad_class_method_override.py:23:5: error: Method overridden with different type signature: bar
+CHECK-NEXT: def bar(self:"B") -> int:
+CHECK: bad_class_method_override.py:27:5: error: Method overridden with different type signature: baz
+CHECK-NEXT: def baz(self:"B", x:int) -> bool:
+CHECK: bad_class_method_override.py:31:5: error: Method overridden with different type signature: qux
+CHECK-NEXT: def qux(self:"B", x:bool) -> int:
+CHECK: 3 errors generated!

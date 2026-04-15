@@ -1,0 +1,593 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "VarDef",
+      "location": [
+        3,
+        1,
+        3,
+        15
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          1,
+          3,
+          2
+        ],
+        "name": "x"
+      },
+      "type": {
+        "kind": "ListType",
+        "location": [
+          3,
+          3,
+          3,
+          8
+        ],
+        "elementType": {
+          "kind": "ClassType",
+          "location": [
+            3,
+            4,
+            3,
+            7
+          ],
+          "className": "int"
+        }
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          3,
+          11,
+          3,
+          15
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        4,
+        1,
+        4,
+        18
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          4,
+          1,
+          4,
+          2
+        ],
+        "name": "y"
+      },
+      "type": {
+        "kind": "ListType",
+        "location": [
+          4,
+          3,
+          4,
+          11
+        ],
+        "elementType": {
+          "kind": "ClassType",
+          "location": [
+            4,
+            4,
+            4,
+            10
+          ],
+          "className": "object"
+        }
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          4,
+          14,
+          4,
+          18
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        5,
+        1,
+        5,
+        16
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          5,
+          1,
+          5,
+          2
+        ],
+        "name": "z"
+      },
+      "type": {
+        "kind": "ListType",
+        "location": [
+          5,
+          3,
+          5,
+          9
+        ],
+        "elementType": {
+          "kind": "ClassType",
+          "location": [
+            5,
+            4,
+            5,
+            8
+          ],
+          "className": "bool"
+        }
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          5,
+          12,
+          5,
+          16
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        6,
+        1,
+        6,
+        16
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          6,
+          1,
+          6,
+          2
+        ],
+        "name": "o"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          6,
+          3,
+          6,
+          9
+        ],
+        "className": "object"
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          6,
+          12,
+          6,
+          16
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    }
+  ],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        8,
+        1,
+        8,
+        14
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            8,
+            1,
+            8,
+            2
+          ],
+          "name": "x",
+          "inferredType": {
+            "kind": "ListValueType"
+          }
+        }
+      ],
+      "value": {
+        "kind": "ListExpr",
+        "location": [
+          8,
+          5,
+          8,
+          14
+        ],
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              6,
+              8,
+              7
+            ],
+            "value": 1,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              9,
+              8,
+              10
+            ],
+            "value": 2,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          },
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              12,
+              8,
+              13
+            ],
+            "value": 3,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        ],
+        "inferredType": {
+          "kind": "ListValueType"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        9,
+        1,
+        9,
+        7
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            9,
+            1,
+            9,
+            2
+          ],
+          "name": "x",
+          "inferredType": {
+            "kind": "ListValueType"
+          }
+        }
+      ],
+      "value": {
+        "kind": "ListExpr",
+        "location": [
+          9,
+          5,
+          9,
+          7
+        ],
+        "elements": [],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<Empty>"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        10,
+        1,
+        10,
+        14
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            10,
+            1,
+            10,
+            2
+          ],
+          "name": "y",
+          "inferredType": {
+            "kind": "ListValueType"
+          }
+        }
+      ],
+      "value": {
+        "kind": "ListExpr",
+        "location": [
+          10,
+          5,
+          10,
+          14
+        ],
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              10,
+              6,
+              10,
+              7
+            ],
+            "value": 1,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          },
+          {
+            "kind": "BooleanLiteral",
+            "location": [
+              10,
+              9,
+              10,
+              13
+            ],
+            "value": "true",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "bool"
+            }
+          }
+        ],
+        "inferredType": {
+          "kind": "ListValueType"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        11,
+        1,
+        11,
+        18
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            11,
+            1,
+            11,
+            2
+          ],
+          "name": "z",
+          "inferredType": {
+            "kind": "ListValueType"
+          }
+        }
+      ],
+      "value": {
+        "kind": "ListExpr",
+        "location": [
+          11,
+          5,
+          11,
+          18
+        ],
+        "elements": [
+          {
+            "kind": "BooleanLiteral",
+            "location": [
+              11,
+              6,
+              11,
+              11
+            ],
+            "value": "false",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "bool"
+            }
+          },
+          {
+            "kind": "BooleanLiteral",
+            "location": [
+              11,
+              13,
+              11,
+              17
+            ],
+            "value": "true",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "bool"
+            }
+          }
+        ],
+        "inferredType": {
+          "kind": "ListValueType"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        12,
+        1,
+        12,
+        9
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            12,
+            1,
+            12,
+            2
+          ],
+          "name": "x",
+          "inferredType": {
+            "kind": "ListValueType"
+          }
+        }
+      ],
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          12,
+          5,
+          12,
+          9
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        13,
+        1,
+        13,
+        6
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            13,
+            1,
+            13,
+            2
+          ],
+          "name": "o",
+          "inferredType": {
+            "kind": "ClassValueType",
+            "name": "object"
+          }
+        }
+      ],
+      "value": {
+        "kind": "DeclRef",
+        "location": [
+          13,
+          5,
+          13,
+          6
+        ],
+        "name": "x",
+        "inferredType": {
+          "kind": "ListValueType"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        14,
+        1,
+        14,
+        12
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            14,
+            1,
+            14,
+            2
+          ],
+          "name": "o",
+          "inferredType": {
+            "kind": "ClassValueType",
+            "name": "object"
+          }
+        },
+        {
+          "kind": "DeclRef",
+          "location": [
+            14,
+            5,
+            14,
+            6
+          ],
+          "name": "x",
+          "inferredType": {
+            "kind": "ListValueType"
+          }
+        }
+      ],
+      "value": {
+        "kind": "ListExpr",
+        "location": [
+          14,
+          9,
+          14,
+          12
+        ],
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "location": [
+              14,
+              10,
+              14,
+              11
+            ],
+            "value": 1,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        ],
+        "inferredType": {
+          "kind": "ListValueType"
+        }
+      }
+    }
+  ]
+}

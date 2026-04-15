@@ -1,0 +1,3 @@
+CHECK: bad_class_method_override_attr.py:7:2: error: Cannot re-define attribute: f
+CHECK-NEXT: def f(self:B) -> int:
+CHECK: 1 error generated!

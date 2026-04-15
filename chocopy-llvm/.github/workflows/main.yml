@@ -31,5 +31,23 @@ jobs:
       # Build your program with the given configuration
       run: cmake --build --preset ci-server
 
-    - name: Test Parser
+  test-parser:
+    needs: build
+    runs-on: [self-hosted, Linux, X64, chocopy]
+    steps:
+    - name: Run Parser Tests
       run: cmake --build --preset ci-server --target check-chpy-parser
+
+  test-sema-p1:
+    needs: test-parser
+    runs-on: [self-hosted, Linux, X64, chocopy]
+    steps:
+    - name: Run Sema Tests (Part 1)
+      run: cmake --build --preset ci-server --target check-chpy-sema-basic-rules
+
+  test-sema-p2:
+    needs: test-sema-p1
+    runs-on: [self-hosted, Linux, X64, chocopy]
+    steps:
+    - name: Run Sema Tests (Part 2)
+      run: cmake --build --preset ci-server --target check-chpy-sema

@@ -1,0 +1,9 @@
+CHECK: bad_shadow_local.py:6:16: error: Cannot shadow class name: bool
+CHECK-NEXT: def foo(x:int, bool:str) -> object: # Second param uses an invalid name
+CHECK: bad_shadow_local.py:8:5: error: Cannot shadow class name: A
+CHECK-NEXT: A:int = 5       # Invalid name
+CHECK: bad_shadow_local.py:9:5: error: Cannot shadow class name: object
+CHECK-NEXT: object:str = "" # Invalid name
+CHECK: bad_shadow_local.py:11:5: error: Cannot shadow class name: str
+CHECK-NEXT: def str() -> bool: # Invalid name
+CHECK: 4 errors generated!

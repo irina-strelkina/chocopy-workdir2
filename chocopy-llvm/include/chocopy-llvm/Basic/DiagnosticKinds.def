@@ -46,8 +46,26 @@ DIAG(err_invalid_type_annotation, Error, "Invalid type annotation; there is no c
 
 DIAG(err_cannot_access_member, Error, "Cannot access member of non-class type {0}")
 
+DIAG(err_no_attribute, Error, "There is no attribute named `{0}` in class `{1}`")
+
+DIAG(err_no_method, Error, "There is no method named `{0}` in class `{1}`")
+
+DIAG(err_args_count, Error, "Expected {0} arguments; got {1}")
+
+DIAG(err_not_func, Error, "Not a function or class: {0}")
+
+DIAG(err_bad_index, Error, "Index is of non-integer type `{0}`")
+
+DIAG(err_not_list_type, Error, "`{0}` is not a list type")
+
+DIAG(err_cannot_index, Error, "Cannot index into type `{0}`")
+
+DIAG(err_tc_call, Error, "Expected type `{0}`; got type `{1}` in parameter {2}")
+
 DIAG(err_tc_assign, Error, "Expected type `{0}`; got type `{1}`")
 
 DIAG(err_tc_binary, Error, "Cannot apply operator `{0}` on types `{1}` and `{2}`")
+
+DIAG(err_tc_unary, Error, "Cannot apply operator `{0}` on type `{1}`")
 
 #undef DIAG

@@ -1,0 +1,330 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "FuncDef",
+      "location": [
+        3,
+        1,
+        10,
+        13
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          5,
+          3,
+          10
+        ],
+        "name": "outer"
+      },
+      "params": [],
+      "returnType": {
+        "kind": "ClassType",
+        "location": [
+          3,
+          16,
+          3,
+          19
+        ],
+        "className": "int"
+      },
+      "declarations": [
+        {
+          "kind": "FuncDef",
+          "location": [
+            4,
+            5,
+            7,
+            17
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              9,
+              4,
+              14
+            ],
+            "name": "inner"
+          },
+          "params": [],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              4,
+              20,
+              4,
+              23
+            ],
+            "className": "int"
+          },
+          "declarations": [
+            {
+              "kind": "NonLocalDecl",
+              "location": [
+                5,
+                9,
+                5,
+                19
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  5,
+                  18,
+                  5,
+                  19
+                ],
+                "name": "x"
+              }
+            }
+          ],
+          "statemets": [
+            {
+              "kind": "AssignStmt",
+              "location": [
+                6,
+                9,
+                6,
+                14
+              ],
+              "targets": [
+                {
+                  "kind": "DeclRef",
+                  "location": [
+                    6,
+                    9,
+                    6,
+                    10
+                  ],
+                  "name": "x",
+                  "inferredType": {
+                    "kind": "ClassValueType",
+                    "name": "int"
+                  }
+                }
+              ],
+              "value": {
+                "kind": "IntegerLiteral",
+                "location": [
+                  6,
+                  13,
+                  6,
+                  14
+                ],
+                "value": 1,
+                "inferredType": {
+                  "kind": "ClassValueType",
+                  "name": "int"
+                }
+              }
+            },
+            {
+              "kind": "ReturnStmt",
+              "location": [
+                7,
+                9,
+                7,
+                17
+              ],
+              "value": {
+                "kind": "DeclRef",
+                "location": [
+                  7,
+                  16,
+                  7,
+                  17
+                ],
+                "name": "x",
+                "inferredType": {
+                  "kind": "ClassValueType",
+                  "name": "int"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "VarDef",
+          "location": [
+            8,
+            5,
+            8,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              8,
+              5,
+              8,
+              6
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              8,
+              7,
+              8,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              8,
+              13,
+              8,
+              14
+            ],
+            "value": 0,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        }
+      ],
+      "statemets": [
+        {
+          "kind": "ExprStmt",
+          "location": [
+            9,
+            5,
+            9,
+            12
+          ],
+          "expr": {
+            "kind": "CallExpr",
+            "location": [
+              9,
+              5,
+              9,
+              12
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                9,
+                5,
+                9,
+                10
+              ],
+              "name": "inner",
+              "inferredType": {
+                "kind": "FuncType",
+                "parameters": []
+              }
+            },
+            "args": [],
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        },
+        {
+          "kind": "ReturnStmt",
+          "location": [
+            10,
+            5,
+            10,
+            13
+          ],
+          "value": {
+            "kind": "DeclRef",
+            "location": [
+              10,
+              12,
+              10,
+              13
+            ],
+            "name": "x",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        12,
+        1,
+        12,
+        15
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          12,
+          1,
+          12,
+          15
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            12,
+            1,
+            12,
+            6
+          ],
+          "name": "print",
+          "inferredType": {
+            "kind": "FuncType",
+            "parameters": [
+              {
+                "kind": "ClassValueType",
+                "name": "object"
+              }
+            ]
+          }
+        },
+        "args": [
+          {
+            "kind": "CallExpr",
+            "location": [
+              12,
+              7,
+              12,
+              14
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                12,
+                7,
+                12,
+                12
+              ],
+              "name": "outer",
+              "inferredType": {
+                "kind": "FuncType",
+                "parameters": []
+              }
+            },
+            "args": [],
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    }
+  ]
+}

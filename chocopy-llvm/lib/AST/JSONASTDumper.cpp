@@ -129,6 +129,10 @@ void JSONNodeDumper::visitUnaryExpr(const UnaryExpr *U) {
 
 void JSONNodeDumper::visitFuncType(const FuncType *F) {
   JOS.attribute("kind", "FuncType");
+  JOS.attributeArray("parameters", [this, F] {
+    for (const Type *T : F->getParametersTypes())
+      JOS.object([&] { ConstTypeVisitor<JSONNodeDumper>::visit(T); });
+  });
   /// @todo
 }
 

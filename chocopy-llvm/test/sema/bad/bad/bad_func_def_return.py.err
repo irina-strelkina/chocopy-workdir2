@@ -1,0 +1,7 @@
+CHECK: bad_func_def_return.py:4:5: error: Expected type `int`; got type `<None>`
+CHECK-NEXT: return None
+CHECK: bad_func_def_return.py:7:5: error: Expected type `bool`; got type `int`
+CHECK-NEXT: return 1
+CHECK: bad_func_def_return.py:10:5: error: Expected type `str`; got type `<None>`
+CHECK-NEXT: return
+CHECK: 3 errors generated!

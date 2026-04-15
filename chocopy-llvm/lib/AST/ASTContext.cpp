@@ -117,6 +117,12 @@ BinaryExpr *ASTContext::createBinaryExpr(SMRange Loc, Expr *Left,
   return create<BinaryExpr>(Loc, Left, Kind, Right);
 }
 
+BinaryExpr *ASTContext::createBinaryExpr(Expr *Left, BinaryExpr::OpKind Kind,
+                                         Expr *Right) {
+  SMRange Loc(Left->getLocation().Start, Right->getLocation().End);
+  return create<BinaryExpr>(Loc, Left, Kind, Right);
+}
+
 CallExpr *ASTContext::createCallExpr(SMRange Loc, Expr *Function,
                                      const ExprList &Args) {
   return create<CallExpr>(Loc, Function, Args);
@@ -170,12 +176,15 @@ UnaryExpr *ASTContext::createUnaryExpr(SMRange Loc, UnaryExpr::OpKind Kind,
   return create<UnaryExpr>(Loc, Kind, Operand);
 }
 
-ClassValueType *ASTContext::getClassVType(StringRef Name) {
-  if (ClassValueType *C = ClassVTypes.lookup(Name))
-    return C;
+ClassValueType *ASTContext::getClassVType(ClassDef *CD) {
+  if (ClassValueType *CVT = CD->getValueType())
+    return CVT;
 
-  return ClassVTypes.insert({Name, create<ClassValueType>(*this, Name)})
-      .first->getValue();
+  StringRef Name = CD->getName();
+  ClassValueType *CVT = create<ClassValueType>(*this, CD);
+  CD->setValueType(CVT);
+  ClassVTypes.insert({Name, CVT});
+  return CVT;
 }
 
 ListValueType *ASTContext::getListVType(ValueType *ElTy) {
@@ -193,35 +202,6 @@ FuncType *ASTContext::getFuncType(const ValueTypeList &ParametersTy,
     *It.first = create<FuncType>(ParametersTy, RetTy);
 
   return *It.first;
-}
-
-ValueType *ASTContext::convertAnnotationToVType(TypeAnnotation *TA) {
-  return llvm::TypeSwitch<TypeAnnotation *, ValueType *>(TA)
-      .Case([this](ClassType *CT) { return getClassVType(CT->getClassName()); })
-      .Case([this](ListType *L) {
-        return getListVType(convertAnnotationToVType(L->getElementType()));
-      });
-}
-
-bool ASTContext::isAssignementCompatibility(const ValueType *Sub,
-                                            const ValueType *Super) {
-  if (Sub == Super)
-    return true;
-
-  if (Sub == NoneTy)
-    return Super != IntTy && Super != StrTy && Super != BoolTy;
-
-  if (isa<const ListValueType>(Super)) {
-    if (Sub == EmptyTy)
-      return true;
-
-    if (auto *L = dyn_cast<ListValueType>(Sub))
-      return L->getElementType() == NoneTy;
-
-    return false;
-  }
-
-  return false;
 }
 
 void ASTContext::initPredefinedClasses(SymbolTable &ST) {
@@ -280,12 +260,19 @@ void ASTContext::initPredefinedFunctions(SymbolTable &ST) {
 }
 
 void ASTContext::initPredefinedTypes(SymbolTable &ST) {
-  ObjectTy = create<ClassValueType>(*this, OBJECT);
-  IntTy = create<ClassValueType>(*this, INT);
-  StrTy = create<ClassValueType>(*this, STR);
-  BoolTy = create<ClassValueType>(*this, BOOL);
-  NoneTy = create<ClassValueType>(*this, NONE);
-  EmptyTy = create<ClassValueType>(*this, EMPTY);
+  ObjectTy = create<ClassValueType>(*this, ObjClass);
+  IntTy = create<ClassValueType>(*this, IntClass);
+  StrTy = create<ClassValueType>(*this, StrClass);
+  BoolTy = create<ClassValueType>(*this, BoolClass);
+  NoneTy = create<ClassValueType>(*this, NoneClass);
+  EmptyTy = create<ClassValueType>(*this, EmptyClass);
+
+  ObjClass->setValueType(ObjectTy);
+  IntClass->setValueType(IntTy);
+  StrClass->setValueType(StrTy);
+  BoolClass->setValueType(BoolTy);
+  NoneClass->setValueType(NoneTy);
+  EmptyClass->setValueType(EmptyTy);
 
   ClassVTypes.insert({OBJECT, ObjectTy});
   ClassVTypes.insert({INT, IntTy});

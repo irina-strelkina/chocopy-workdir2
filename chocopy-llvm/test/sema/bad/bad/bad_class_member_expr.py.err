@@ -1,0 +1,7 @@
+CHECK: bad_class_member_expr.py:6:1: error: There is no attribute named `foo` in class `int`
+CHECK-NEXT: x.foo
+CHECK: bad_class_member_expr.py:7:1: error: There is no attribute named `bar` in class `object`
+CHECK-NEXT: o.bar
+CHECK: bad_class_member_expr.py:8:1: error: There is no attribute named `baz` in class `object`
+CHECK-NEXT: o.baz = 1
+CHECK: 3 errors generated!

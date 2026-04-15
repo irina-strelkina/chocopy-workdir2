@@ -1,0 +1,267 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "FuncDef",
+      "location": [
+        3,
+        1,
+        4,
+        17
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          5,
+          3,
+          8
+        ],
+        "name": "foo"
+      },
+      "params": [
+        {
+          "kind": "ParamDecl",
+          "location": [
+            3,
+            9,
+            3,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              3,
+              9,
+              3,
+              10
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              3,
+              11,
+              3,
+              14
+            ],
+            "className": "str"
+          }
+        },
+        {
+          "kind": "ParamDecl",
+          "location": [
+            3,
+            16,
+            3,
+            22
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              3,
+              16,
+              3,
+              17
+            ],
+            "name": "y"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              3,
+              18,
+              3,
+              22
+            ],
+            "className": "bool"
+          }
+        }
+      ],
+      "returnType": {
+        "kind": "ClassType",
+        "location": [
+          3,
+          27,
+          3,
+          30
+        ],
+        "className": "int"
+      },
+      "declarations": [],
+      "statemets": [
+        {
+          "kind": "ReturnStmt",
+          "location": [
+            4,
+            5,
+            4,
+            17
+          ],
+          "value": {
+            "kind": "CallExpr",
+            "location": [
+              4,
+              12,
+              4,
+              17
+            ],
+            "function": {
+              "kind": "DeclRef",
+              "location": [
+                4,
+                12,
+                4,
+                15
+              ],
+              "name": "bar",
+              "inferredType": {
+                "kind": "FuncType",
+                "parameters": []
+              }
+            },
+            "args": [],
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "FuncDef",
+      "location": [
+        6,
+        1,
+        7,
+        13
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          6,
+          5,
+          6,
+          8
+        ],
+        "name": "bar"
+      },
+      "params": [],
+      "returnType": {
+        "kind": "ClassType",
+        "location": [
+          6,
+          14,
+          6,
+          17
+        ],
+        "className": "int"
+      },
+      "declarations": [],
+      "statemets": [
+        {
+          "kind": "ReturnStmt",
+          "location": [
+            7,
+            5,
+            7,
+            13
+          ],
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              7,
+              12,
+              7,
+              13
+            ],
+            "value": 1,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "statements": [
+    {
+      "kind": "ExprStmt",
+      "location": [
+        9,
+        1,
+        9,
+        20
+      ],
+      "expr": {
+        "kind": "CallExpr",
+        "location": [
+          9,
+          1,
+          9,
+          20
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            9,
+            1,
+            9,
+            4
+          ],
+          "name": "foo",
+          "inferredType": {
+            "kind": "FuncType",
+            "parameters": [
+              {
+                "kind": "ClassValueType",
+                "name": "str"
+              },
+              {
+                "kind": "ClassValueType",
+                "name": "bool"
+              }
+            ]
+          }
+        },
+        "args": [
+          {
+            "kind": "StringLiteral",
+            "location": [
+              9,
+              5,
+              9,
+              12
+            ],
+            "value": "Hello",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "str"
+            }
+          },
+          {
+            "kind": "BooleanLiteral",
+            "location": [
+              9,
+              14,
+              9,
+              19
+            ],
+            "value": "false",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "bool"
+            }
+          }
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "int"
+        }
+      }
+    }
+  ]
+}

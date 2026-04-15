@@ -1,0 +1,5 @@
+CHECK: bad_type_id.py:3:1: error: Not a variable: x
+CHECK-NEXT: x - 1
+CHECK: bad_type_id.py:3:1: error: Cannot apply operator `-` on types `object` and `int`
+CHECK-NEXT: x - 1
+CHECK: 2 errors generated!

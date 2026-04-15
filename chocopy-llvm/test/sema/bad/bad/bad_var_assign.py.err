@@ -1,0 +1,13 @@
+CHECK: bad_var_assign.py:6:1: error: Expected type `int`; got type `bool`
+CHECK-NEXT: x = False
+CHECK: bad_var_assign.py:7:1: error: Expected type `bool`; got type `int`
+CHECK-NEXT: y = 2
+CHECK: bad_var_assign.py:8:1: error: Not a variable: z
+CHECK-NEXT: z = 3
+CHECK: bad_var_assign.py:9:5: error: Not a variable: z
+CHECK-NEXT: x = z = 4
+CHECK: bad_var_assign.py:10:5: error: Not a variable: z
+CHECK-NEXT: x = z = None
+CHECK: bad_var_assign.py:10:1: error: Expected type `int`; got type `<None>`
+CHECK-NEXT: x = z = None
+CHECK: 6 errors generated!

@@ -1,0 +1,9 @@
+CHECK: bad_expr_unary.py:3:1: error: Cannot apply operator `not` on type `str`
+CHECK-NEXT: not "Bad"
+CHECK: bad_expr_unary.py:4:1: error: Cannot apply operator `-` on type `bool`
+CHECK-NEXT: -True
+CHECK: bad_expr_unary.py:5:1: error: Cannot apply operator `-` on type `<None>`
+CHECK-NEXT: -None
+CHECK: bad_expr_unary.py:6:1: error: Cannot apply operator `not` on type `<Empty>`
+CHECK-NEXT: not []
+CHECK: 4 errors generated!

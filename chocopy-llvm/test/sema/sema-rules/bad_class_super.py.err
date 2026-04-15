@@ -1,0 +1,7 @@
+CHECK: bad_class_super.py:4:9: error: Super-class not defined: B
+CHECK-NEXT: class A(B):
+CHECK: bad_class_super.py:10:9: error: Super-class must be a class: z
+CHECK-NEXT: class B(z):
+CHECK: bad_class_super.py:14:9: error: Cannot extend special class: int
+CHECK-NEXT: class C(int):
+CHECK: 3 errors generated!

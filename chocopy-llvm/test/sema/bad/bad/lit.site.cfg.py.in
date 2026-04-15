@@ -1,0 +1,12 @@
+@LIT_SITE_CFG_IN_HEADER@
+
+config.chpy_src_root = path(r"@CHOCOPY_SOURCE_DIR@")
+config.chpy_obj_root = path(r"@CHOCOPY_BINARY_DIR@")
+config.chpy_tools_dir = path(r"@CHOCOPY_TOOLS_BINARY_DIR@")
+config.llvm_tools_dir = path(r"@LLVM_TOOLS_DIR@")
+
+import lit.llvm
+lit.llvm.initialize(lit_config, config)
+
+# Let the main config do the real work.
+lit_config.load_config(config, os.path.join(config.chpy_src_root, "test/sema/bad/lit.cfg.py"))

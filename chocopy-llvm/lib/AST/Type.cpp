@@ -1,4 +1,5 @@
 #include "chocopy-llvm/AST/Type.h"
+#include "chocopy-llvm/AST/AST.h"
 #include "chocopy-llvm/AST/ASTContext.h"
 
 namespace chocopy {
@@ -9,7 +10,6 @@ bool ValueType::isBool() const { return this == Ctx.getBoolTy(); }
 
 bool ValueType::isNone() const { return this == Ctx.getNoneTy(); }
 
-bool operator<=(const ValueType &Sub, const ValueType &Sup) {
-  return Sub.Ctx.isAssignementCompatibility(&Sub, &Sup);
-}
+StringRef ClassValueType::getClassName() const { return ClassDecl->getName(); }
+ClassDef *ClassValueType::getClassDef() const { return ClassDecl; }
 } // namespace chocopy

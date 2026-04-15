@@ -1,0 +1,3 @@
+CHECK: bad_class_init_override.py:6:5: error: Method overridden with different type signature: __init__
+CHECK-NEXT: def __init__(self:"A", x:int): # Bad override
+CHECK: 1 error generated!

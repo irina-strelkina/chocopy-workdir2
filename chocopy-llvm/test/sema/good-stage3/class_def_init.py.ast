@@ -1,0 +1,548 @@
+{
+  "kind": "Program",
+  "declarations": [
+    {
+      "kind": "ClassDef",
+      "location": [
+        3,
+        1,
+        4,
+        14
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          7,
+          3,
+          8
+        ],
+        "name": "A"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          3,
+          9,
+          3,
+          15
+        ],
+        "name": "object"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            4,
+            5,
+            4,
+            14
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              4,
+              5,
+              4,
+              6
+            ],
+            "name": "x"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              4,
+              7,
+              4,
+              10
+            ],
+            "className": "int"
+          },
+          "value": {
+            "kind": "IntegerLiteral",
+            "location": [
+              4,
+              13,
+              4,
+              14
+            ],
+            "value": 1,
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "int"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ClassDef",
+      "location": [
+        6,
+        1,
+        8,
+        13
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          6,
+          7,
+          6,
+          8
+        ],
+        "name": "B"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          6,
+          9,
+          6,
+          10
+        ],
+        "name": "A"
+      },
+      "declarations": [
+        {
+          "kind": "FuncDef",
+          "location": [
+            7,
+            5,
+            8,
+            13
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              7,
+              9,
+              7,
+              17
+            ],
+            "name": "__init__"
+          },
+          "params": [
+            {
+              "kind": "ParamDecl",
+              "location": [
+                7,
+                18,
+                7,
+                27
+              ],
+              "name": {
+                "kind": "Identifier",
+                "location": [
+                  7,
+                  18,
+                  7,
+                  22
+                ],
+                "name": "self"
+              },
+              "type": {
+                "kind": "ClassType",
+                "location": [
+                  7,
+                  24,
+                  7,
+                  27
+                ],
+                "className": "B"
+              }
+            }
+          ],
+          "returnType": {
+            "kind": "ClassType",
+            "location": [
+              7,
+              28,
+              7,
+              28
+            ],
+            "className": "<None>"
+          },
+          "declarations": [],
+          "statemets": []
+        }
+      ]
+    },
+    {
+      "kind": "ClassDef",
+      "location": [
+        10,
+        1,
+        11,
+        18
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          10,
+          7,
+          10,
+          8
+        ],
+        "name": "C"
+      },
+      "superClass": {
+        "kind": "Identifier",
+        "location": [
+          10,
+          9,
+          10,
+          10
+        ],
+        "name": "B"
+      },
+      "declarations": [
+        {
+          "kind": "VarDef",
+          "location": [
+            11,
+            5,
+            11,
+            18
+          ],
+          "name": {
+            "kind": "Identifier",
+            "location": [
+              11,
+              5,
+              11,
+              6
+            ],
+            "name": "z"
+          },
+          "type": {
+            "kind": "ClassType",
+            "location": [
+              11,
+              7,
+              11,
+              11
+            ],
+            "className": "bool"
+          },
+          "value": {
+            "kind": "BooleanLiteral",
+            "location": [
+              11,
+              14,
+              11,
+              18
+            ],
+            "value": "true",
+            "inferredType": {
+              "kind": "ClassValueType",
+              "name": "bool"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        13,
+        1,
+        13,
+        11
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          13,
+          1,
+          13,
+          2
+        ],
+        "name": "a"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          13,
+          3,
+          13,
+          4
+        ],
+        "className": "A"
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          13,
+          7,
+          13,
+          11
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        14,
+        1,
+        14,
+        11
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          14,
+          1,
+          14,
+          2
+        ],
+        "name": "b"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          14,
+          3,
+          14,
+          4
+        ],
+        "className": "B"
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          14,
+          7,
+          14,
+          11
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    },
+    {
+      "kind": "VarDef",
+      "location": [
+        15,
+        1,
+        15,
+        11
+      ],
+      "name": {
+        "kind": "Identifier",
+        "location": [
+          15,
+          1,
+          15,
+          2
+        ],
+        "name": "c"
+      },
+      "type": {
+        "kind": "ClassType",
+        "location": [
+          15,
+          3,
+          15,
+          4
+        ],
+        "className": "C"
+      },
+      "value": {
+        "kind": "NoneLiteral",
+        "location": [
+          15,
+          7,
+          15,
+          11
+        ],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "<None>"
+        }
+      }
+    }
+  ],
+  "statements": [
+    {
+      "kind": "AssignStmt",
+      "location": [
+        17,
+        1,
+        17,
+        8
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            17,
+            1,
+            17,
+            2
+          ],
+          "name": "a",
+          "inferredType": {
+            "kind": "ClassValueType",
+            "name": "A"
+          }
+        }
+      ],
+      "value": {
+        "kind": "CallExpr",
+        "location": [
+          17,
+          5,
+          17,
+          8
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            17,
+            5,
+            17,
+            6
+          ],
+          "name": "A",
+          "inferredType": {
+            "kind": "FuncType",
+            "parameters": [
+              {
+                "kind": "ClassValueType",
+                "name": "object"
+              }
+            ]
+          }
+        },
+        "args": [],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "A"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        18,
+        1,
+        18,
+        8
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            18,
+            1,
+            18,
+            2
+          ],
+          "name": "b",
+          "inferredType": {
+            "kind": "ClassValueType",
+            "name": "B"
+          }
+        }
+      ],
+      "value": {
+        "kind": "CallExpr",
+        "location": [
+          18,
+          5,
+          18,
+          8
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            18,
+            5,
+            18,
+            6
+          ],
+          "name": "B",
+          "inferredType": {
+            "kind": "FuncType",
+            "parameters": [
+              {
+                "kind": "ClassValueType",
+                "name": "B"
+              }
+            ]
+          }
+        },
+        "args": [],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "B"
+        }
+      }
+    },
+    {
+      "kind": "AssignStmt",
+      "location": [
+        19,
+        1,
+        19,
+        8
+      ],
+      "targets": [
+        {
+          "kind": "DeclRef",
+          "location": [
+            19,
+            1,
+            19,
+            2
+          ],
+          "name": "c",
+          "inferredType": {
+            "kind": "ClassValueType",
+            "name": "C"
+          }
+        }
+      ],
+      "value": {
+        "kind": "CallExpr",
+        "location": [
+          19,
+          5,
+          19,
+          8
+        ],
+        "function": {
+          "kind": "DeclRef",
+          "location": [
+            19,
+            5,
+            19,
+            6
+          ],
+          "name": "C",
+          "inferredType": {
+            "kind": "FuncType",
+            "parameters": [
+              {
+                "kind": "ClassValueType",
+                "name": "B"
+              }
+            ]
+          }
+        },
+        "args": [],
+        "inferredType": {
+          "kind": "ClassValueType",
+          "name": "C"
+        }
+      }
+    }
+  ]
+}

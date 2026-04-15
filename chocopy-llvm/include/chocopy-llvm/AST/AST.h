@@ -51,6 +51,8 @@ class MethodCallExpr;
 class UnaryExpr;
 
 class Type;
+class ValueType;
+class ClassValueType;
 
 using DeclList = SmallVector<Declaration *>;
 using ExprList = SmallVector<Expr *>;
@@ -148,6 +150,8 @@ class ClassDef : public Declaration {
 public:
   Identifier *getSuperClass() const { return SuperClass; }
   ArrayRef<Declaration *> getDeclarations() const { return Declarations; }
+  ClassValueType *getValueType() const { return CValueTy; }
+  void setValueType(ClassValueType *CVT) { CValueTy = CVT; }
 
 public:
   static bool classof(const Declaration *D) {
@@ -165,6 +169,8 @@ private:
   Identifier *SuperClass;
   /** Body of the class. */
   DeclList Declarations;
+
+  ClassValueType *CValueTy = nullptr;
 };
 
 class FuncDef : public Declaration {
@@ -278,6 +284,9 @@ public:
   Kind getKind() const { return Kind; }
   SMRange getLocation() const { return Loc; }
 
+  ValueType *getValueType() const { return VTy; }
+  void setValueType(ValueType *VType) { VTy = VType; }
+
 protected:
   TypeAnnotation(SMRange Loc, Kind Kind) : Kind(Kind), Loc(Loc) {}
 
@@ -289,6 +298,7 @@ private:
 private:
   Kind Kind;
   SMRange Loc;
+  ValueType *VTy = nullptr;
 };
 
 class ClassType : public TypeAnnotation {

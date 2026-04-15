@@ -54,7 +54,7 @@
               6,
               12,
               6,
-              19
+              17
             ],
             "elementType": {
               "kind": "ClassType",
@@ -157,9 +157,9 @@
                 "kind": "ClassType",
                 "location": [
                   10,
-                  24,
+                  23,
                   10,
-                  30
+                  31
                 ],
                 "className": "Vector"
               }
@@ -281,9 +281,9 @@
                 "kind": "ClassType",
                 "location": [
                   14,
-                  24,
+                  23,
                   14,
-                  30
+                  31
                 ],
                 "className": "Vector"
               }
@@ -403,9 +403,9 @@
                 "kind": "ClassType",
                 "location": [
                   18,
-                  33,
+                  32,
                   18,
-                  39
+                  40
                 ],
                 "className": "Vector"
               }
@@ -614,9 +614,9 @@
                 "kind": "ClassType",
                 "location": [
                   23,
-                  22,
+                  21,
                   23,
-                  28
+                  29
                 ],
                 "className": "Vector"
               }
@@ -1091,9 +1091,9 @@
                 "kind": "ClassType",
                 "location": [
                   35,
-                  33,
+                  32,
                   35,
-                  47
+                  48
                 ],
                 "className": "DoublingVector"
               }

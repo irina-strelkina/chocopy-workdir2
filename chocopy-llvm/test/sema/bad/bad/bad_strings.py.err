@@ -1,0 +1,13 @@
+CHECK: bad_strings.py:7:1: error: Cannot apply operator `+` on types `int` and `str`
+CHECK-NEXT: 1 + x
+CHECK: bad_strings.py:8:5: error: Cannot apply operator `+` on types `str` and `int`
+CHECK-NEXT: z = x + 1
+CHECK: bad_strings.py:8:1: error: Expected type `str`; got type `int`
+CHECK-NEXT: z = x + 1
+CHECK: bad_strings.py:9:5: error: `str` is not a list type
+CHECK-NEXT: z = x[0] = y
+CHECK: bad_strings.py:10:1: error: `str` is not a list type
+CHECK-NEXT: x[1] = y
+CHECK: bad_strings.py:11:1: error: Index is of non-integer type `bool`
+CHECK-NEXT: x[True]
+CHECK: 6 errors generated!

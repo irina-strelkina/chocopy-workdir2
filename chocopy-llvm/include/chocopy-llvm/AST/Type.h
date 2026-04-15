@@ -8,6 +8,7 @@
 namespace chocopy {
 class ASTContext;
 class ValueType;
+class ClassDef;
 
 using ValueTypeList = SmallVector<ValueType *>;
 
@@ -33,7 +34,7 @@ class FuncType final : public Type {
 
 public:
   const ValueTypeList &getParametersTypes() const { return ParametersTy; }
-  const ValueType *getReturnType() const { return RetTy; }
+  ValueType *getReturnType() const { return RetTy; }
 
 public:
   static bool classof(const Type *T) {
@@ -74,8 +75,6 @@ protected:
   ValueType(ASTContext &Ctx, ValueKind VKind)
       : Type(TypeKind::Value), VKind(VKind), Ctx(Ctx) {}
 
-  friend bool operator<=(const ValueType &Sub, const ValueType &Sup);
-
 private:
   ValueKind VKind;
   ASTContext &Ctx;
@@ -85,7 +84,8 @@ class ClassValueType final : public ValueType {
   friend ASTContext;
 
 public:
-  StringRef getClassName() const { return ClassName; }
+  StringRef getClassName() const;
+  ClassDef *getClassDef() const;
 
 public:
   static bool classof(const Type *T) {
@@ -99,11 +99,11 @@ public:
   }
 
 protected:
-  ClassValueType(ASTContext &Ctx, StringRef ClassName)
-      : ValueType(Ctx, ValueKind::Class), ClassName(ClassName) {}
+  ClassValueType(ASTContext &Ctx, ClassDef *ClassDecl)
+      : ValueType(Ctx, ValueKind::Class), ClassDecl(ClassDecl) {}
 
 private:
-  StringRef ClassName;
+  ClassDef *ClassDecl;
 };
 
 class ListValueType final : public ValueType {
