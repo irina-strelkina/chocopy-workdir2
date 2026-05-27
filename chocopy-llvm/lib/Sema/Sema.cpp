@@ -14,6 +14,17 @@
 #include <llvm/ADT/TypeSwitch.h>
 
 namespace chocopy {
+static SMLoc getDeclNameLoc(Declaration *D) {
+  return D->getNameId()->getLocation().Start;
+}
+
+static SMLoc getIdentifierLoc(Identifier *Id) { return Id->getLocation().Start; }
+
+static bool isBeforeOrInvalid(SMLoc A, SMLoc B) {
+  if (!A.isValid() || !B.isValid())
+    return true;
+  return A.getPointer() < B.getPointer();
+}
 
 //===----------------------------------------------------------------------===//
 // Вспомогательные функции: вывод типов для диагностики
@@ -361,7 +372,7 @@ void Sema::actOnPopScope(Scope *S) {
 
 bool Sema::checkDuplication(Declaration *D) {
   if (lookupName(CurScope.get(), D->getSymbolInfo())) {
-    Diags.emitError(D->getLocation().Start, diag::err_dup_decl) << D->getName();
+    Diags.emitError(getDeclNameLoc(D), diag::err_dup_decl) << D->getName();
     return false;
   }
   return true;
@@ -408,20 +419,31 @@ bool Sema::checkGlobalDecl(GlobalDecl *GD) {
 
 bool Sema::checkSuperClass(ClassDef *D) {
   SymbolInfo *SI = D->getSuperClass()->getSymbolInfo();
-  Declaration *SupDecl = lookupDecl(SI);
+  Declaration *SupDecl = nullptr;
+  SMLoc CurClassLoc = D->getLocation().Start;
+  for (Declaration *Decl : GlobalScope->getDecls()) {
+    if (Decl->getSymbolInfo() != SI)
+      continue;
+    if (!isBeforeOrInvalid(Decl->getLocation().Start, CurClassLoc))
+      break;
+    SupDecl = Decl;
+  }
+
   if (!SupDecl) {
-    Diags.emitError(D->getLocation().Start, diag::err_supclass_not_def)
+    Diags.emitError(getIdentifierLoc(D->getSuperClass()), diag::err_supclass_not_def)
         << D->getSuperClass()->getName();
     return false;
   }
   ClassDef *S = dyn_cast<ClassDef>(SupDecl);
   if (!S) {
-    Diags.emitError(D->getLocation().Start, diag::err_supclass_isnot_class)
+    Diags.emitError(getIdentifierLoc(D->getSuperClass()),
+                    diag::err_supclass_isnot_class)
         << D->getSuperClass()->getName();
     return false;
   }
   if (Ctx.isIntClass(S) || Ctx.isStrClass(S) || Ctx.isBoolClass(S)) {
-    Diags.emitError(D->getLocation().Start, diag::err_supclass_is_special_class)
+    Diags.emitError(getIdentifierLoc(D->getSuperClass()),
+                    diag::err_supclass_is_special_class)
         << D->getSuperClass()->getName();
     return false;
   }
@@ -430,7 +452,7 @@ bool Sema::checkSuperClass(ClassDef *D) {
 
 bool Sema::checkFirstMethodParam(ClassDef *CD, FuncDef *FD) {
   if (FD->getParams().empty()) {
-    Diags.emitError(FD->getLocation().Start, diag::err_first_method_param)
+    Diags.emitError(getDeclNameLoc(FD), diag::err_first_method_param)
         << FD->getName();
     return false;
   }
@@ -439,7 +461,8 @@ bool Sema::checkFirstMethodParam(ClassDef *CD, FuncDef *FD) {
     if (CT->getClassName() == CD->getName())
       return true;
   }
-  Diags.emitError(FD->getLocation().Start, diag::err_first_method_param)
+  Diags.emitError(getDeclNameLoc(FD),
+                  diag::err_first_method_param)
       << FD->getName();
   return false;
 }
@@ -458,16 +481,17 @@ bool Sema::checkMethodOverride(FuncDef *OM, FuncDef *M) {
 
 bool Sema::checkClassAttrs(ClassDef *D) {
   bool Ok = true;
+  ClassDef *Super = getSuperClass(D);
   for (Declaration *Decl : D->getDeclarations()) {
     if (FuncDef *F = dyn_cast<FuncDef>(Decl)) {
       Ok &= checkFirstMethodParam(D, F);
-      if (lookupMember(getSuperClass(D),
+      if (lookupMember(Super,
                        Ctx.createDeclRef(F->getLocation(), F->getSymbolInfo()))) {
         Diags.emitError(F->getLocation().Start, diag::err_redefine_attr)
             << F->getName();
         Ok = false;
       }
-      if (FuncDef *SM = lookupMethod(getSuperClass(D), F->getName())) {
+      if (FuncDef *SM = lookupMethod(Super, F->getName())) {
         if (!checkMethodOverride(F, SM)) {
           Diags.emitError(F->getLocation().Start, diag::err_method_override)
               << F->getName();
@@ -476,13 +500,13 @@ bool Sema::checkClassAttrs(ClassDef *D) {
       }
     }
     if (VarDef *V = dyn_cast<VarDef>(Decl)) {
-      if (lookupMember(getSuperClass(D),
+      if (lookupMember(Super,
                        Ctx.createDeclRef(V->getLocation(), V->getSymbolInfo()))) {
         Diags.emitError(V->getLocation().Start, diag::err_redefine_attr)
             << V->getName();
         Ok = false;
       }
-      if (lookupMethod(getSuperClass(D), V->getName())) {
+      if (lookupMethod(Super, V->getName())) {
         Diags.emitError(V->getLocation().Start, diag::err_redefine_attr)
             << V->getName();
         Ok = false;

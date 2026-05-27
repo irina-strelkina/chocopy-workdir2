@@ -30,7 +30,7 @@ Lexer::Lexer(DiagnosticsEngine &Diags, llvm::SourceMgr &SrcMgr)
     : Diags(Diags), SourceMgr(SrcMgr), CurBuffer(SourceMgr.getMainFileID()),
       CurBuf(SourceMgr.getMemoryBuffer(CurBuffer)->getBuffer()),
       BufPtr(CurBuf.begin()), BufEnd(CurBuf.end()) {
-  initializeSymbolTable(SymbolTable);
+  initializeSymbolTable(SymTable);
 }
 
 void Lexer::reset() {
@@ -41,8 +41,8 @@ void Lexer::reset() {
   CurLexerCallback = callbackLexer;
   CachedTokenPos = 0;
   CachedTokens.clear();
-  SymbolTable = chocopy::SymbolTable();
-  initializeSymbolTable(SymbolTable);
+  SymTable = chocopy::SymbolTable();
+  initializeSymbolTable(SymTable);
 }
 
 bool Lexer::lex(Token &Tok) {
@@ -206,7 +206,7 @@ void Lexer::handleIdentifier(Token &Tok) {
   unsigned Length = BufPtr - Ptr;
   SMLoc B = SMLoc::getFromPointer(Ptr);
   SMLoc E = SMLoc::getFromPointer(BufPtr);
-  SymbolInfo &SI = SymbolTable.get(StringRef(Ptr, Length));
+  SymbolInfo &SI = SymTable.get(StringRef(Ptr, Length));
   Tok.setKind(SI.getKind());
   Tok.setLocation(SMRange(B, E));
   Tok.setSymbolInfo(&SI);
@@ -271,7 +271,7 @@ void Lexer::handleString(Token &Tok) {
 }
 
 void Lexer::handleToken(Token &Tok, StringRef Str, tok::TokenKind Kind) {
-  SymbolInfo &SI = SymbolTable.get(Str, Kind);
+  SymbolInfo &SI = SymTable.get(Str, Kind);
   Tok.setKind(SI.getKind());
   SMLoc B = SMLoc::getFromPointer(BufPtr);
   SMLoc E = SMLoc::getFromPointer(BufPtr + SI.getName().size());
