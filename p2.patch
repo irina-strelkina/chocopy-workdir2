@@ -1,0 +1,204 @@
+diff --git a/chocopy-llvm/lib/Parser/Parser.cpp b/chocopy-llvm/lib/Parser/Parser.cpp
+index ad1fa237e816077ed2ccd469304093cfb6b67b94..acdcd014e1047c2903cbd75119f15062d0db5ca3 100644
+--- a/chocopy-llvm/lib/Parser/Parser.cpp
++++ b/chocopy-llvm/lib/Parser/Parser.cpp
+@@ -130,71 +130,81 @@ Declaration *Parser::parseDeclaration(bool InClassScope, bool InFunctionScope) {
+ ClassDef *Parser::parseClassDef() {
+   SMLoc Start = Tok.getLocation().Start;
+   consumeToken(); // class
+ 
+   if (!expect(tok::identifier))
+     return nullptr;
+   SMRange NameLoc = Tok.getLocation();
+   SymbolInfo *Name = Tok.getSymbolInfo();
+   consumeToken();
+ 
+   if (!expectAndConsume(tok::l_paren))
+     return nullptr;
+ 
+   if (!expect(tok::identifier))
+     return nullptr;
+   SMRange SuperLoc = Tok.getLocation();
+   SymbolInfo *Super = Tok.getSymbolInfo();
+   consumeToken();
+ 
+   if (!expectAndConsume(tok::r_paren) || !expectAndConsume(tok::colon) ||
+       !expectAndConsume(tok::NEWLINE) || !expectAndConsume(tok::INDENT))
+     return nullptr;
+ 
+   DeclList Declarations;
+   while (Tok.isNot(tok::DEDENT) && Tok.isNot(tok::eof)) {
++    if (Tok.is(tok::kw_pass)) {
++      consumeToken();
++      if (!expectAndConsume(tok::NEWLINE))
++        return nullptr;
++      continue;
++    }
++
+     if (Declaration *D = parseDeclaration(/*InClassScope=*/true,
+                                           /*InFunctionScope=*/false)) {
+       Declarations.push_back(D);
+       continue;
+     }
+ 
+     // Abort body parse on malformed declaration prefix.
+     if (!isDeclStart()) {
+       emitUnexpected();
+       skipToNextDedent();
+       break;
+     }
+     skipToNextLine();
+   }
+ 
++  SMLoc BodyEnd = Tok.getLocation().Start;
+   if (!expectAndConsume(tok::DEDENT))
+     return nullptr;
+ 
+   SMLoc End = NameLoc.End;
+   if (!Declarations.empty())
+     End = Declarations.back()->getLocation().End;
++  if (BodyEnd.getPointer() > End.getPointer())
++    End = BodyEnd;
+ 
+   SMRange Loc(Start, End);
+   Identifier *ClassId = Context.createIdentifier(NameLoc, Name);
+   Identifier *SuperId = Context.createIdentifier(SuperLoc, Super);
+   return Context.createClassDef(Loc, ClassId, SuperId, Declarations);
+ }
+ 
+ ParamDecl *Parser::parseTypedVar(bool IsParam) {
+   if (!expect(tok::identifier))
+     return nullptr;
+ 
+   SMRange NameLoc = Tok.getLocation();
+   SymbolInfo *Name = Tok.getSymbolInfo();
+   consumeToken();
+ 
+   if (!expectAndConsume(tok::colon))
+     return nullptr;
+ 
+   TypeAnnotation *T = parseType();
+   if (!T)
+     return nullptr;
+ 
+   Identifier *Id = Context.createIdentifier(NameLoc, Name);
+   if (IsParam)
+     return Context.createParamDecl(SMRange(NameLoc.Start, Tok.getLocation().Start),
+@@ -238,58 +248,61 @@ FuncDef *Parser::parseFuncDef() {
+     SMRange NoneLoc(Tok.getLocation().Start, Tok.getLocation().Start);
+     RetType = Context.createClassType(NoneLoc, "<None>");
+   }
+ 
+   if (!expectAndConsume(tok::colon) || !expectAndConsume(tok::NEWLINE) ||
+       !expectAndConsume(tok::INDENT))
+     return nullptr;
+ 
+   DeclList Declarations;
+   while (isDeclStart()) {
+     if (Declaration *D = parseDeclaration(/*InClassScope=*/false,
+                                           /*InFunctionScope=*/true)) {
+       Declarations.push_back(D);
+       continue;
+     }
+     skipToNextLine();
+   }
+ 
+   StmtList Statements;
+   while (Tok.isNot(tok::DEDENT) && Tok.isNot(tok::eof)) {
+     if (!parseStmt(Statements)) {
+       skipToNextLine();
+     }
+   }
+ 
++  SMLoc BodyEnd = Tok.getLocation().Start;
+   if (!expectAndConsume(tok::DEDENT))
+     return nullptr;
+ 
+   SMLoc End = NameLoc.End;
+   if (!Declarations.empty())
+     End = Declarations.back()->getLocation().End;
+   if (!Statements.empty())
+     End = Statements.back()->getLocation().End;
++  if (BodyEnd.getPointer() > End.getPointer())
++    End = BodyEnd;
+ 
+   SMRange Loc(Start, End);
+   Identifier *FuncId = Context.createIdentifier(NameLoc, Name);
+   return Context.createFuncDef(Loc, FuncId, Params, RetType, Declarations,
+                                Statements);
+ }
+ 
+ GlobalDecl *Parser::parseGlobalDecl() {
+   SMLoc Start = Tok.getLocation().Start;
+   consumeToken();
+ 
+   if (!expect(tok::identifier))
+     return nullptr;
+ 
+   SMRange NameLoc = Tok.getLocation();
+   SymbolInfo *Name = Tok.getSymbolInfo();
+   consumeToken();
+ 
+   if (!expect(tok::NEWLINE))
+     return nullptr;
+   SMLoc End = NameLoc.End;
+   consumeToken();
+ 
+   Identifier *Id = Context.createIdentifier(NameLoc, Name);
+   return Context.createGlobalDecl(SMRange(Start, End), Id);
+@@ -807,55 +820,50 @@ Expr *Parser::parsePrimaryExpr() {
+     return parseLiteral();
+ 
+   emitUnexpected();
+   return nullptr;
+ }
+ 
+ /// type = ID | IDSTRING | '[' type ']'
+ TypeAnnotation *Parser::parseType() {
+   SMRange Loc = Tok.getLocation();
+   switch (Tok.getKind()) {
+   case tok::identifier: {
+     StringRef Name = Tok.getSymbolInfo()->getName();
+     consumeToken();
+     return Context.createClassType(Loc, Name);
+   }
+   case tok::idstring: {
+     StringRef Name = Tok.getLiteralData();
+     consumeToken();
+     return Context.createClassType(Loc, Name);
+   }
+   case tok::l_square: {
+     consumeToken();
+     if (TypeAnnotation *T = parseType()) {
+       if (expect(tok::r_square)) {
+         SMLoc End = Tok.getLocation().End;
+-        const char *Ptr = End.getPointer();
+-        if (Ptr && *Ptr == ' ')
+-          End = SMLoc::getFromPointer(Ptr + 2);
+-        else
+-          End = SMLoc::getFromPointer(Ptr + 1);
+         consumeToken();
+         Loc = SMRange(Loc.Start, End);
+         return Context.createListType(Loc, T);
+       }
+     }
+     return nullptr;
+   }
+   default:
+     emitUnexpected();
+     return nullptr;
+   }
+ }
+ 
+ Literal *Parser::parseLiteral() {
+   SMRange Loc = Tok.getLocation();
+ 
+   if (consumeToken(tok::kw_None)) {
+     return Context.createNoneLiteral(Loc);
+   } else if (consumeToken(tok::kw_True)) {
+     return Context.createBooleanLiteral(Loc, true);
+   } else if (consumeToken(tok::kw_False)) {
+     return Context.createBooleanLiteral(Loc, false);
+   } else if (Tok.is(tok::integer_literal)) {
+     llvm::APInt Value(32, Tok.getLiteralData(), 10);
+     consumeToken();

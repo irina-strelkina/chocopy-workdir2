@@ -15,7 +15,7 @@ public:
 
   DiagnosticsEngine &getDiagnostics() const { return Diags; }
 
-  SymbolTable &getSymbolTable() { return SymbolTable; }
+  SymbolTable &getSymbolTable() { return SymTable; }
 
   void reset();
 
@@ -74,7 +74,7 @@ private:
   const char *BufPtr = nullptr;
   const char *BufEnd = nullptr;
   bool IsCachingMode = true;
-  SymbolTable SymbolTable;
+  SymbolTable SymTable;
   int DedentCount = 0;
   bool IsLogLineStart = false;
 };
