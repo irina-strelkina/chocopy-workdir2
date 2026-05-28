@@ -525,9 +525,24 @@ bool Sema::checkAssignTarget(Expr *E) {
     if (Declaration *D = lookupName(CurScope.get(), DR->getSymbolInfo()))
       return isa<VarDef>(D) || isa<ParamDecl>(D) || isa<GlobalDecl>(D) ||
              isa<NonLocalDecl>(D);
-    Diags.emitError(E->getLocation().Start, diag::err_bad_local_assign)
-        << DR->getName();
+    if (CurScope->isGlobal())
+      Diags.emitError(E->getLocation().Start, diag::err_not_variable)
+          << DR->getName();
+    else
+      Diags.emitError(E->getLocation().Start, diag::err_bad_local_assign)
+          << DR->getName();
     return false;
+  }
+  if (IndexExpr *IE = dyn_cast<IndexExpr>(E)) {
+    ValueType *BaseTy =
+        dyn_cast_or_null<ValueType>(IE->getList()->getInferredType());
+    if (!BaseTy)
+      BaseTy = Ctx.getObjectTy();
+    if (!isa<ListValueType>(BaseTy)) {
+      Diags.emitError(E->getLocation().Start, diag::err_not_list_type)
+          << *BaseTy;
+      return false;
+    }
   }
   return true;
 }
@@ -644,14 +659,20 @@ void Sema::actOnAssignStmt(AssignStmt *A) {
   ValueType *RHS = dyn_cast_or_null<ValueType>(A->getValue()->getInferredType());
   if (!RHS)
     RHS = Ctx.getObjectTy();
+  llvm::SmallPtrSet<Expr *, 8> InvalidTargets;
+  for (Expr *Target : llvm::reverse(A->getTargets())) {
+    if (!checkAssignTarget(Target))
+      InvalidTargets.insert(Target);
+  }
   for (Expr *Target : A->getTargets()) {
     ValueType *LHS = dyn_cast_or_null<ValueType>(Target->getInferredType());
     if (!LHS)
       LHS = Ctx.getObjectTy();
+    if (InvalidTargets.contains(Target))
+      continue;
     if (!isAssignementCompatibility(RHS, LHS))
       Diags.emitError(Target->getLocation().Start, diag::err_tc_assign)
           << *LHS << *RHS;
-    checkAssignTarget(Target);
   }
 }
 
@@ -670,16 +691,24 @@ void Sema::actOnReturnStmt(ReturnStmt *R) {
 }
 
 void Sema::actOnBinaryExpr(BinaryExpr *B) {
+  if (DeclRef *LDR = dyn_cast<DeclRef>(B->getLeft()))
+    if (!lookupDecl(LDR))
+      Diags.emitError(LDR->getLocation().Start, diag::err_not_variable)
+          << LDR->getName();
+  if (DeclRef *RDR = dyn_cast<DeclRef>(B->getRight()))
+    if (!lookupDecl(RDR))
+      Diags.emitError(RDR->getLocation().Start, diag::err_not_variable)
+          << RDR->getName();
   ValueType *LTy = dyn_cast_or_null<ValueType>(B->getLeft()->getInferredType());
   ValueType *RTy = dyn_cast_or_null<ValueType>(B->getRight()->getInferredType());
   if (!LTy)
     LTy = Ctx.getObjectTy();
   if (!RTy)
     RTy = Ctx.getObjectTy();
-  auto Err = [&]() {
+  auto Err = [&](ValueType *Fallback = nullptr) {
     Diags.emitError(B->getLocation().Start, diag::err_tc_binary)
         << B->getOpKindStr() << *LTy << *RTy;
-    B->setInferredType(Ctx.getObjectTy());
+    B->setInferredType(Fallback ? Fallback : Ctx.getObjectTy());
   };
   switch (B->getOpKind()) {
   case BinaryExpr::OpKind::And:
@@ -698,9 +727,9 @@ void Sema::actOnBinaryExpr(BinaryExpr *B) {
       if (auto *RL = dyn_cast<ListValueType>(RTy)) {
         B->setInferredType(Ctx.getListVType(join(LL->getElementType(), RL->getElementType())));
       } else
-        Err();
+        Err(Ctx.getIntTy());
     } else
-      Err();
+      Err(Ctx.getIntTy());
     break;
   case BinaryExpr::OpKind::Sub:
   case BinaryExpr::OpKind::Mul:
@@ -709,18 +738,21 @@ void Sema::actOnBinaryExpr(BinaryExpr *B) {
     if (LTy->isInt() && RTy->isInt())
       B->setInferredType(Ctx.getIntTy());
     else
-      Err();
+      Err(Ctx.getIntTy());
     break;
   case BinaryExpr::OpKind::EqCmp:
   case BinaryExpr::OpKind::NEqCmp:
-    B->setInferredType(Ctx.getBoolTy());
+    if ((LTy->isInt() && RTy->isInt()) || (LTy->isStr() && RTy->isStr()) ||
+        (LTy->isBool() && RTy->isBool()))
+      B->setInferredType(Ctx.getBoolTy());
+    else
+      Err();
     break;
   case BinaryExpr::OpKind::LEqCmp:
   case BinaryExpr::OpKind::GEqCmp:
   case BinaryExpr::OpKind::LCmp:
   case BinaryExpr::OpKind::GCmp:
-    if ((LTy->isInt() && RTy->isInt()) || (LTy->isStr() && RTy->isStr()) ||
-        (LTy->isBool() && RTy->isBool()))
+    if ((LTy->isInt() && RTy->isInt()) || (LTy->isStr() && RTy->isStr()))
       B->setInferredType(Ctx.getBoolTy());
     else
       Err();
@@ -743,7 +775,7 @@ void Sema::actOnIndexExpr(IndexExpr *I) {
   if (!ITy)
     ITy = Ctx.getObjectTy();
   if (!ITy->isInt())
-    Diags.emitError(I->getIndex()->getLocation().Start, diag::err_bad_index)
+    Diags.emitError(I->getLocation().Start, diag::err_bad_index)
         << *ITy;
   if (BTy->isStr())
     I->setInferredType(Ctx.getStrTy());
@@ -757,7 +789,7 @@ void Sema::actOnIndexExpr(IndexExpr *I) {
 
 void Sema::actOnListExpr(ListExpr *L) {
   if (L->getElements().empty()) {
-    L->setInferredType(Ctx.getListVType(Ctx.getEmptyTy()));
+    L->setInferredType(Ctx.getEmptyTy());
     return;
   }
   ValueType *ElTy = dyn_cast_or_null<ValueType>(L->getElements().front()->getInferredType());
@@ -799,6 +831,8 @@ void Sema::actOnCallExpr(CallExpr *CE) {
         if (!isAssignementCompatibility(Got, Expected))
           Diags.emitError(CE->getLocation().Start, diag::err_tc_call)
               << *Expected << *Got << int(I);
+        if (!isAssignementCompatibility(Got, Expected))
+          break;
       }
     }
     CE->setInferredType(convertATypeToVType(FD->getReturnType()));
@@ -906,7 +940,9 @@ void Sema::actOnMethodCallExpr(MethodCallExpr *M) {
         GTy = Ctx.getObjectTy();
       if (!isAssignementCompatibility(GTy, ETy))
         Diags.emitError(M->getLocation().Start, diag::err_tc_call)
-            << *ETy << *GTy << int(I);
+            << *ETy << *GTy << int(I + 1);
+      if (!isAssignementCompatibility(GTy, ETy))
+        break;
     }
   }
   M->setInferredType(convertATypeToVType(FD->getReturnType()));
@@ -1078,10 +1114,11 @@ bool Sema::isAssignementCompatibility(const ValueType *Sub,
     if (isa<ClassValueType>(Super) && !Super->isInt() && !Super->isStr() &&
         !Super->isBool())
       return true;
-    if (auto *SL = dyn_cast<ListValueType>(Super))
-      return !SL->getElementType()->isInt() && !SL->getElementType()->isStr() &&
-             !SL->getElementType()->isBool();
+    if (isa<ListValueType>(Super))
+      return true;
   }
+  if (Sub == Ctx.getEmptyTy() && isa<ListValueType>(Super))
+    return true;
   if (auto *SubC = dyn_cast<ClassValueType>(Sub))
     if (auto *SupC = dyn_cast<ClassValueType>(Super)) {
       for (ClassDef *CD = SubC->getClassDef(); CD; CD = getSuperClass(CD))
@@ -1090,8 +1127,7 @@ bool Sema::isAssignementCompatibility(const ValueType *Sub,
     }
   if (auto *SubL = dyn_cast<ListValueType>(Sub))
     if (auto *SupL = dyn_cast<ListValueType>(Super))
-      return isAssignementCompatibility(SubL->getElementType(),
-                                        SupL->getElementType());
+      return SubL->getElementType() == SupL->getElementType();
   return false;
 }
 
