@@ -152,11 +152,6 @@ ClassDef *Parser::parseClassDef() {
 
   DeclList Declarations;
   while (Tok.isNot(tok::DEDENT) && Tok.isNot(tok::eof)) {
-    if (Tok.is(tok::kw_pass)) {
-      consumeToken();
-      expectAndConsume(tok::NEWLINE);
-      continue;
-    }
     if (Declaration *D = parseDeclaration(/*InClassScope=*/true,
                                           /*InFunctionScope=*/false)) {
       Declarations.push_back(D);
